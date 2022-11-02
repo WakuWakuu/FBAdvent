@@ -5,6 +5,8 @@ Made with help of the GodotBulletHellper plugin, which can be found here: https:
 
 This game runs a slightly modified version of said plugin, which is included in the files here.
 
+Dialogic is used for the dialogue. It is also included here, but the plugin can be found here: https://github.com/coppolaemilio/dialogic 
+
 Godot engine can also be found here: https://github.com/godotengine/godot
 
 
