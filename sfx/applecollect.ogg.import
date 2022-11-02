@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/applecollect.ogg-92f49617d71a9f64949fd2718e9a3b45.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx/applecollect.ogg"
+dest_files=[ "res://.import/applecollect.ogg-92f49617d71a9f64949fd2718e9a3b45.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
