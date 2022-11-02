@@ -1,0 +1,61 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[tornado  radius=5 freq=5]Dialogue test"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Test [shake rate=10 level=10]aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1667425252.json",
+		"name": "test"
+	}
+}

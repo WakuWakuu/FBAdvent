@@ -1,0 +1,21 @@
+{
+	"color": "#ff12b3fa",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": true,
+	"id": "character-1667425299.json",
+	"mirror_portraits": false,
+	"name": "Owl girl",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": "theme-1667425818.cfg"
+}
