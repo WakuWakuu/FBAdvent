@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/chara/bullet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/playerBullet.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/sfx/shoot.ogg" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="playerBullet" type="KinematicBody2D" groups=["playerBullet"]]
+script = ExtResource( 2 )
+
+[node name="hitboxBull" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxBull"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="killTimer" type="Timer" parent="."]
+wait_time = 1.7
+one_shot = true
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[connection signal="area_entered" from="hitboxBull" to="." method="_on_hitboxBull_area_entered"]
+[connection signal="timeout" from="killTimer" to="." method="_on_killTimer_timeout"]

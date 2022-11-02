@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/BulletHellper/Source/BulletPattern.gd" type="Script" id=1]
+[ext_resource path="res://addons/BulletHellper/Source/BulletPattern.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/BulletHellper/BasicBullets/SmallBullet.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.5 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.0352941, 0.0392157, 0.341176, 1 )
+
+[node name="circle" type="Node2D"]
+position = Vector2( 350, 280 )
+script = ExtResource( 1 )
+bullet_scene = ExtResource( 4 )
+bullet_cooldown = 0.5
+bullet_num = 25
+shot_type = 1
+spread = 360.0
+direction = Vector2( -4.37114e-08, 1 )
+perpendicular_offset = 100.0
+rotating_speed = 0.0
+shell_settings = {
+"acceleration": 50.0,
+"aim_individual_bullet": false,
+"angular_speed": 100.0,
+"color": Color( 1, 1, 1, 1 ),
+"gradient": SubResource( 1 ),
+"lifetime": 20.0,
+"max_angular_stray": 110.0,
+"speed": 100.0,
+"use_gradient": true
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="InShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="InitialWaitTimer" type="Timer" parent="."]
+
+[node name="BetweenShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Aim" parent="." instance=ExtResource( 3 )]
+bullet_num = 3
+spread = 50.0
+position_offset = 50.0
+shell_settings = {
+"aim_individual_bullet": true,
+"angular_speed": 0.0,
+"color": Color( 0.356863, 0.407843, 0.941176, 1 ),
+"lifetime": 20.0,
+"max_angular_stray": 0.0,
+"speed": 125.0,
+"use_gradient": false
+}

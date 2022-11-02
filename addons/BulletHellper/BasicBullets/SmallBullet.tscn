@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/BulletHellper/BasicBullets/NodeBullet.gd" type="Script" id=1]
+[ext_resource path="res://addons/BulletHellper/BasicBullets/SmallBullet.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/sfx/enemy shoot.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scripts/sound.gd" type="Script" id=4]
+
+[node name="SmallBullet" type="Node2D" groups=["Bullet"]]
+script = ExtResource( 1 )
+radius = 5.0
+
+[node name="SmallBullet" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -17.479
+autoplay = true
+script = ExtResource( 4 )

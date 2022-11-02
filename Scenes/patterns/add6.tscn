@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/BulletHellper/Source/BulletPattern.gd" type="Script" id=1]
+[ext_resource path="res://addons/BulletHellper/BasicBullets/BigBullet.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.5 )
+colors = PoolColorArray( 0.843137, 0.388235, 0.211765, 1, 0.894118, 0.882353, 0.113725, 1 )
+
+[node name="BulletPattern" type="Node2D"]
+position = Vector2( 542, 210 )
+script = ExtResource( 1 )
+bullet_scene = ExtResource( 2 )
+bullet_cooldown = 3.0
+bullet_num = 7
+shot_type = 1
+spread = 360.0
+direction = Vector2( 0, 1 )
+rotating_speed = 0.0
+randomize_position = 10.0
+randomize_perpendicular = 10.0
+shell_settings = {
+"color": Color( 1, 1, 1, 1 ),
+"gradient": SubResource( 1 ),
+"lifetime": 15.0,
+"use_gradient": true
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="InShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="InitialWaitTimer" type="Timer" parent="."]
+
+[node name="BetweenShotTimer" type="Timer" parent="."]
+one_shot = true

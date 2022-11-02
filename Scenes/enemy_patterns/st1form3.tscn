@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/owl.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/st1form3.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+length = 10.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Owl:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 297, -0.25, 0, 0.25, 0, 297, -0.25, 0, 0.25, 0, 297, -0.25, 0, 0.25, 0, -119, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 5, 10 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Owl:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 32, -0.25, 0, 0.25, 0, 160, -0.25, 0, 0.25, 0, 160, -0.25, 0, 0.25, 0, 160, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 5, 10 )
+}
+
+[node name="st1form3" type="Node2D"]
+position = Vector2( 311, 128 )
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 1 )
+
+[node name="Owl" parent="." instance=ExtResource( 1 )]
+position = Vector2( 297, 32 )
+
+[node name="Start" type="Timer" parent="."]
+one_shot = true
+
+[node name="bull" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="Shoot" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Start" to="." method="_on_Start_timeout"]
+[connection signal="timeout" from="bull" to="." method="_on_bull_timeout"]
+[connection signal="timeout" from="Shoot" to="." method="_on_Shoot_timeout"]

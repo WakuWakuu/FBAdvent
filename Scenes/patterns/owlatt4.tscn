@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://addons/BulletHellper/BasicBullets/NodeBullet.gd" type="Script" id=1]
+[ext_resource path="res://addons/BulletHellper/BasicBullets/SimpleBullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/BulletHellper/Source/BulletPattern.gd" type="Script" id=3]
+[ext_resource path="res://addons/BulletHellper/BasicBullets/SimpleBullet.png" type="Texture" id=4]
+[ext_resource path="res://addons/BulletHellper/BasicBullets/SmallBullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/BulletHellper/Source/BulletPattern.tscn" type="PackedScene" id=6]
+
+[sub_resource type="PackedScene" id=1]
+_bundled = {
+"conn_count": 0,
+"conns": PoolIntArray(  ),
+"editable_instances": [  ],
+"names": PoolStringArray( "Bullet", "Node2D", "script", "Sprite", "Sprite", "texture" ),
+"node_count": 2,
+"node_paths": [ NodePath(".") ],
+"nodes": PoolIntArray( -1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 1, 5, 1, 0 ),
+"variants": [ ExtResource( 1 ), ExtResource( 4 ) ],
+"version": 2
+}
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.2 )
+colors = PoolColorArray( 0.501961, 0.929412, 0.878431, 1, 0.184314, 0.109804, 0.243137, 1 )
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 0.266667, 0.0980392, 0.129412, 1, 1, 1, 1, 1 )
+
+[node name="BulletPattern" type="Node2D"]
+position = Vector2( 350, 280 )
+script = ExtResource( 3 )
+bullet_scene = ExtResource( 2 )
+bullet_cooldown = 0.5
+bullet_num = 5
+shot_type = 1
+spread = 30.0
+direction = Vector2( -4.37114e-08, 1 )
+rotating_speed = 0.0
+shell_settings = {
+"acceleration": 50.0,
+"aim_individual_bullet": false,
+"angular_speed": 100.0,
+"lifetime": 100.0,
+"max_angular_stray": 0.0,
+"oob_check_time": 20.0
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="InShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="InitialWaitTimer" type="Timer" parent="."]
+
+[node name="BetweenShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BulletPattern" parent="." instance=ExtResource( 6 )]
+bullet_scene = SubResource( 1 )
+direction = Vector2( -4.37114e-08, 1 )
+rotating_speed = 0.0
+shell_settings = {
+"acceleration": 50.0,
+"aim_individual_bullet": false,
+"angular_speed": 100.0,
+"color": Color( 0.741176, 0.196078, 0.196078, 1 ),
+"gradient": SubResource( 2 ),
+"lifetime": 100.0,
+"max_angular_stray": 0.0,
+"max_speed": 0.0,
+"oob_check_time": 20.0,
+"speed": 90.0,
+"use_gradient": true
+}
+
+[node name="BulletPattern2" parent="." instance=ExtResource( 6 )]
+bullet_scene = ExtResource( 5 )
+bullet_cooldown = 0.7
+bullet_num = 10
+cooldown_between_bullets = 0.1
+spread = 360.0
+direction = Vector2( -4.37114e-08, 1 )
+shell_settings = {
+"acceleration": -60.0,
+"gradient": SubResource( 3 ),
+"lifetime": 20.0,
+"oob_check_time": 5.0,
+"speed": 300.0,
+"use_gradient": false
+}
