@@ -19,12 +19,12 @@ func _ready():
 func _physics_process(delta):
 	global_position = get_global_mouse_position()
 
-func _unhandled_key_input(event):
-	if event.pressed and event.scancode == KEY_CONTROL and not event.echo:
-		if prop_bomb:
-			var bomb = prop_bomb.instance()
-			bomb.position = position
-			get_parent().add_child(bomb)
+#func _unhandled_key_input(event):
+#	if event.pressed and event.scancode == KEY_CONTROL and not event.echo:
+#		if prop_bomb:
+#			var bomb = prop_bomb.instance()
+#			bomb.position = position
+#			get_parent().add_child(bomb)
 
 func grazed():
 	graze_count += 1

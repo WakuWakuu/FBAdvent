@@ -64,8 +64,14 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		var form4Instanced = form4.instance()
 		add_child(form4Instanced)
 		yield(get_tree().create_timer(6), "timeout")
-	#add_child(bossInstanced)
-	#bossInstanced.global_position = player.global_position
+	
+	$dialogueStart.start()
+	
 	
 
 	
+
+
+func _on_dialogueStart_timeout():
+	var encounterDialogue = Dialogic.start("OG-encounter")
+	add_child(encounterDialogue)

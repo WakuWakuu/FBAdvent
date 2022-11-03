@@ -1,5 +1,5 @@
 {
-	"color": "#fff71313",
+	"color": "#ffffa2ea",
 	"description": "",
 	"display_name": "",
 	"display_name_bool": true,
@@ -8,14 +8,14 @@
 	"name": "Fruit Bat girl",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": 0,
-	"offset_y": 0,
+	"offset_x": -125,
+	"offset_y": 40,
 	"portraits": [
 		{
 			"name": "Default",
-			"path": ""
+			"path": "res://Sprites/chara/XXZQ6961.PNG"
 		}
 	],
-	"scale": 100,
+	"scale": 40,
 	"theme": "default-theme.cfg"
 }

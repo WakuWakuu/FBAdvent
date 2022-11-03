@@ -1,0 +1,181 @@
+{
+	"events": [
+		{
+			"animation": "2-fade_in_up.gd",
+			"animation_length": 1,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I've been so focused on getting all my apples [speed=10][speed=3]that I didn't stop to look at the scenery. [speed=50][speed=3]It's quite beautiful outside today!"
+		},
+		{
+			"animation": "slide_in_right.gd",
+			"animation_length": 1,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[speed=4]Hey you, [speed=50][speed=2]are you the one who organized all of this?!"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[speed=4]Hm~?"
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You're the one who ordered those owls to steal my [color=red]apples!"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well, [speed=10][speed=3]aren't you a smart little bat. [speed=50][speed=3]Shall I give you an award for finding out the culprit behind this?"
+		},
+		{
+			"animation": "shake_y.gd",
+			"animation_length": 1,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yes, [speed=15][speed=3]give me back my [color=red]apples![/color] [speed=50][speed=3]Owls like you don't even eat them!"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It's rude to generalize, [speed=15][speed=3]you know. [speed=50][speed=3][tornado radius=3 freq=3]Hehe~[/tornado] \nYou're right though, [speed=15][speed=3]I didn't steal these [color=red]apples[/color] to eat them."
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "So why did you do it?"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "So I could battle you, [speed=10][speed=3]of course. [speed=50][speed=3]It's been so long since I've battled against a fruit bat~"
+		},
+		{
+			"animation": "shake_x.gd",
+			"animation_length": 1,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[speed=1]You little-"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[tornado radius=3 freq=3]Hehe, [speed=50][speed=3]looks like I've made you angry!"
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[speed=50]. . ."
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "*sighs* [speed=70][speed=5]Okay, [speed=15][speed=5]fine. [speed=50][speed=3]We can battle then."
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[tornado radius=3 freq=3]Excellent! [/tornado][speed=50][speed=3]I look forward to seeing you lose~!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.5
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1667426977.json",
+		"name": "OG-encounter"
+	}
+}

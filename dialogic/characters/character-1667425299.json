@@ -4,18 +4,18 @@
 	"display_name": "",
 	"display_name_bool": true,
 	"id": "character-1667425299.json",
-	"mirror_portraits": false,
+	"mirror_portraits": true,
 	"name": "Owl girl",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": 0,
-	"offset_y": 0,
+	"offset_x": -175,
+	"offset_y": 40,
 	"portraits": [
 		{
 			"name": "Default",
-			"path": ""
+			"path": "res://Sprites/chara/XXZQ6961.PNG"
 		}
 	],
-	"scale": 100,
+	"scale": 40,
 	"theme": "theme-1667425818.cfg"
 }
