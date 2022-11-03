@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/misc/tilesheet.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Sounds/sfx/swoosh enemy.ogg" type="AudioStream" id=22]
 [ext_resource path="res://Theme/fonts/invertScreen.tres" type="Shader" id=23]
 [ext_resource path="res://Sounds/sfx/respawn.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Sounds/music/og-theme.wav" type="AudioStream" id=25]
 
 [sub_resource type="AnimatedTexture" id=16]
 frames = 8
@@ -209,7 +210,7 @@ font_data = ExtResource( 6 )
 shader = ExtResource( 23 )
 
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 870.859, 555.73 )
+extents = Vector2( 1406.16, 962.743 )
 
 [node name="Scene" type="Node2D" groups=["rootScene"]]
 scale = Vector2( 1.00131, 1.02208 )
@@ -427,6 +428,10 @@ shape = SubResource( 5 )
 
 [node name="Music" type="Node" parent="."]
 
+[node name="boss1" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 25 )
+volume_db = -2.0
+
 [node name="stage1" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 4 )
 volume_db = -2.0
@@ -468,9 +473,9 @@ margin_right = 352.0
 margin_bottom = 168.0
 
 [node name="Stage name" type="RichTextLabel" parent="Stage/Stage1/UI"]
-margin_left = 760.0
+margin_left = -392.0
 margin_top = 88.0
-margin_right = 1071.0
+margin_right = -81.0
 margin_bottom = 136.0
 theme = ExtResource( 8 )
 text = " Wispy valley
@@ -478,9 +483,9 @@ text = " Wispy valley
 scroll_active = false
 
 [node name="sub" type="RichTextLabel" parent="Stage/Stage1/UI"]
-margin_left = -344.0
+margin_left = 632.0
 margin_top = 144.0
-margin_right = 7.99969
+margin_right = 984.0
 margin_bottom = 184.0
 theme = ExtResource( 8 )
 theme_type_variation = "small"
@@ -492,6 +497,10 @@ scroll_active = false
 one_shot = true
 
 [node name="pause1" type="Timer" parent="Stage/Stage1"]
+
+[node name="dialogueStart" type="Timer" parent="Stage/Stage1"]
+wait_time = 4.0
+one_shot = true
 
 [node name="Invert" type="CanvasLayer" parent="."]
 layer = 60
@@ -510,9 +519,11 @@ collision_mask = 2
 script = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletClear"]
-position = Vector2( 870.859, 555.729 )
+position = Vector2( 711.068, 457.89 )
+scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 17 )
 
 [connection signal="death" from="chars/player" to="." method="_on_player_death"]
 [connection signal="animation_finished" from="Stage/Stage1/AnimationPlayer" to="Stage/Stage1" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Stage/Stage1/start1" to="Stage/Stage1" method="_on_start1_timeout"]
+[connection signal="timeout" from="Stage/Stage1/dialogueStart" to="Stage/Stage1" method="_on_dialogueStart_timeout"]

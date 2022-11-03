@@ -31,6 +31,7 @@ shell_settings = {
 "lifetime": 100.0,
 "max_angular_stray": 1000.0,
 "max_speed": 300.0,
+"oob_check_time": 10.0,
 "speed": 200.0,
 "use_gradient": true
 }
@@ -55,7 +56,7 @@ rotating_speed = 0.0
 shell_settings = {
 "acceleration": 30.0,
 "aim_individual_bullet": false,
-"angular_speed": 100.0,
+"angular_speed": 150.0,
 "color": Color( 1, 1, 1, 1 ),
 "gradient": SubResource( 2 ),
 "lifetime": 100.0,

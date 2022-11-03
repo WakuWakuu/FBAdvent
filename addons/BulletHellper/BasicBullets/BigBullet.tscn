@@ -5,7 +5,7 @@
 
 [node name="BigBullet" type="Node2D" groups=["Bullet"]]
 script = ExtResource( 1 )
-radius = 50.0
+radius = 20.0
 
 [node name="BigBullet" type="Sprite" parent="."]
 texture = ExtResource( 2 )

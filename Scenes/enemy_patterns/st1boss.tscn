@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/owlGirl.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/st1boss.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+length = 10.0
+
+[node name="st1boss" type="Node2D"]
+position = Vector2( 311, 128 )
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 1 )
+
+[node name="Start" type="Timer" parent="."]
+one_shot = true
+
+[node name="bull" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="Shoot" type="Timer" parent="."]
+one_shot = true
+
+[node name="OwlGirl" parent="." instance=ExtResource( 1 )]
+position = Vector2( 297, 128 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Start" to="." method="_on_Start_timeout"]
+[connection signal="timeout" from="Shoot" to="." method="_on_Shoot_timeout"]
+[connection signal="phase1End" from="OwlGirl" to="." method="_on_OwlGirl_phase1End"]

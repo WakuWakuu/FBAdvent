@@ -10,8 +10,8 @@ onready var form1 = load("res://Scenes/enemy_patterns/st1form1.tscn")
 onready var form2 = load("res://Scenes/enemy_patterns/st1form2.tscn")
 onready var form3 = load("res://Scenes/enemy_patterns/st1form3.tscn")
 onready var form4 = load("res://Scenes/enemy_patterns/st1form4.tscn")
-onready var miniBoss = load("res://Scenes/enemy_patterns/st1MiniBoss.tscn")
-onready var boss = load("res://Scenes/owlGirl.tscn")
+onready var boss = load("res://Scenes/enemy_patterns/st1boss.tscn")
+#onready var owlGirl = load("res://Scenes/owlGirl.tscn")
 
 var form1Loop = 4
 var form2Loop = 5
@@ -75,3 +75,14 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_dialogueStart_timeout():
 	var encounterDialogue = Dialogic.start("OG-encounter")
 	add_child(encounterDialogue)
+	while Dialogic.has_current_dialog_node():
+		yield(get_tree().create_timer(0.5), "timeout")
+		pass
+	if !Dialogic.has_current_dialog_node():
+		get_parent().get_parent().get_node("Music/boss1").play()
+		get_parent().get_parent().get_node("Music/stage1").stop()
+		var bossInstanced = boss.instance()
+		add_child(bossInstanced)
+
+func _on_phase1_end():
+	pass
