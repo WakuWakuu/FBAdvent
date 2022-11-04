@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/graze.ogg-0d2969b383112f9449876f8af0ccac59.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx/graze.ogg"
+dest_files=[ "res://.import/graze.ogg-0d2969b383112f9449876f8af0ccac59.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

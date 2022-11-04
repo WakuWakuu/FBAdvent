@@ -11,7 +11,9 @@ var health = 1
 
 signal powerIncrease
 
+
 func _ready():
+	
 	yield(get_tree().create_timer(0.5), "timeout")
 	health = int($Health.wait_time)
 	if $Health.wait_time >= 5:
@@ -59,3 +61,5 @@ func _on_meleeRange_area_entered(area):
 func _on_meleeRange_area_exited(area):
 	if area.name == "meleeArea":
 		melee = false
+
+

@@ -66,7 +66,11 @@ var between_bullet_timer : Timer
 
 var rotated_dir : Vector2
 
+
+
 func _ready():
+	
+	
 	base_timer = $Timer
 	base_timer.wait_time = bullet_cooldown
 	initial_wait_timer = $InitialWaitTimer
@@ -211,6 +215,8 @@ func affect_bullet(bullet):
 		bullet.setup(shell)
 
 func shoot_bullet( spawn_pos := Vector2.ZERO):
+	
+	
 	if not bullet_scene:
 		push_warning("Warning: Bullet Pattern missing bullet scene")
 		return
@@ -284,3 +290,4 @@ func shoot_bullet( spawn_pos := Vector2.ZERO):
 		if not shooting: break
 	
 	emit_signal("shot")
+

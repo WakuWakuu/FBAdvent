@@ -23,4 +23,6 @@ func is_colliding(pos : Vector2, radius : float)->bool:
 func _die():
 	BHPatternManager.deregister_other_collider(self)
 	get_parent().remove_child(self)
-	queue_free()
+	set_process(false)
+	hide()
+	#queue_free()

@@ -22,7 +22,6 @@ var canShoot = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	bossHealth.wait_time = 2
 	time.start() #Starts timer
 	
 #Plays the first stage enemy form

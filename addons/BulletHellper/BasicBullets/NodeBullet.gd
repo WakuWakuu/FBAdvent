@@ -26,8 +26,11 @@ var angular_speed := 0.0
 var angular_stray := 0.0
 var max_angular_stray := 0.0
 
+
+
 #Setup bullets info based on shell settings
 func setup(shell : BHBulletShell):
+	
 	if starting_speed == 0:
 		starting_speed = shell.speed
 	speed = starting_speed
@@ -47,6 +50,7 @@ func setup(shell : BHBulletShell):
 		direction = BHPatternManager.get_target_position() - position
 
 func _ready():
+	
 	spent_time = 0.0
 	direction = direction.normalized()
 
@@ -94,4 +98,6 @@ func _die():
 	if died : return
 	died = true
 	get_parent().remove_child(self)
+	#set_process(false)
+	#hide()
 	queue_free()

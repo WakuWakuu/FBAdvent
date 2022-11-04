@@ -85,7 +85,7 @@ func _physics_process(delta):
 
 #never knew that the plugin was capable of this lol
 func grazed():
-	pass
+	$graze.play()
 
 #Kills player on bullet hit. Function is called by the Bullet Hellper plugin.
 func on_hit():

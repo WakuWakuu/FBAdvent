@@ -6,10 +6,12 @@
 [ext_resource path="res://Scripts/sound.gd" type="Script" id=4]
 
 [node name="SmallBullet" type="Node2D" groups=["Bullet"]]
+light_mask = 0
 script = ExtResource( 1 )
 radius = 5.0
 
 [node name="SmallBullet" type="Sprite" parent="."]
+light_mask = 0
 texture = ExtResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

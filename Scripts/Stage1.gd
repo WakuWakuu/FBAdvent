@@ -18,8 +18,9 @@ var form2Loop = 5
 var form3Loop = 4
 var form4Loop = 1
 
+signal bossStart
 
-func _ready():
+func _ready():	
 	$start1.start()
 	
 
@@ -75,6 +76,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_dialogueStart_timeout():
 	var encounterDialogue = Dialogic.start("OG-encounter")
 	add_child(encounterDialogue)
+	emit_signal("bossStart")
 	while Dialogic.has_current_dialog_node():
 		yield(get_tree().create_timer(0.5), "timeout")
 		pass
@@ -86,3 +88,4 @@ func _on_dialogueStart_timeout():
 
 func _on_phase1_end():
 	pass
+
