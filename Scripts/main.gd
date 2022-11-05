@@ -60,9 +60,9 @@ func powerGauge():
 func meleeCheck():
 	if get_tree().get_nodes_in_group("Owl").empty() != true:
 			for i in get_tree().get_nodes_in_group("Owl").size():
-				var apples = get_tree().get_nodes_in_group("Owl")
-				if not apples[i].is_connected("powerIncrease", self, "powerGauge"):
-					apples[i].connect("powerIncrease", self, "powerGauge")
+				var owls = get_tree().get_nodes_in_group("Owl")
+				if not owls[i].is_connected("powerIncrease", self, "powerGauge"):
+					owls[i].connect("powerIncrease", self, "powerGauge")
 					
 func appleCheck():
 	if get_tree().get_nodes_in_group("Apple").empty() != true:

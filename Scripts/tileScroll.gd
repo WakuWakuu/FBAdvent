@@ -27,8 +27,7 @@ func stopScrolling(delta):
 	map.position.y += scrollSpeed * delta
 	scrollSpeed -= 0.1
 	if map.position.y >= 550 and map.position.y <= 700:
-		scrollSpeed -= 0.2
-		pass
+		scrollSpeed -= 0.25
 	elif map.position.y >= 700:
 		canScroll = false
 		

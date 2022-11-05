@@ -11,22 +11,12 @@ position = Vector2( 542, 210 )
 script = ExtResource( 1 )
 bullet_scene = ExtResource( 2 )
 bullet_cooldown = 0.05
-initial_wait_time = 0.0
-bullet_num = 1
-cooldown_between_bullets = 0.0
 aiming_bullet = true
 shot_type = 1
 spread = 30.0
-use_static_direction = false
 direction = Vector2( 0, 1 )
-position_offset = 0.0
-perpendicular_offset = 0.0
-is_rotating = false
 rotating_speed = 0.0
-randomize_position = 0.0
 randomize_direction = 100.0
-randomize_parallel = 0.0
-randomize_perpendicular = 0.0
 shell_settings = {
 "acceleration": -170.0,
 "color": Color( 0.372549, 0.282353, 0.894118, 1 ),

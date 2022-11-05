@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/FB_death_pichuun.ogg-ff1629e17f431cf0ae91f93026af5001.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx/FB_death_pichuun.ogg"
+dest_files=[ "res://.import/FB_death_pichuun.ogg-ff1629e17f431cf0ae91f93026af5001.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -5,7 +5,7 @@
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.5 )
-colors = PoolColorArray( 0.305882, 0.211765, 0.843137, 1, 0.827451, 0.666667, 0.933333, 1 )
+colors = PoolColorArray( 0.204874, 0.128111, 0.643066, 1, 0.187603, 0.56179, 0.615723, 1 )
 
 [node name="BulletPattern" type="Node2D"]
 position = Vector2( 542, 210 )

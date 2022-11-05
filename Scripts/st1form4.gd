@@ -27,8 +27,8 @@ var patternLoop = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	owl1Health.wait_time = 1
-	owl2Health.wait_time = 8
+	owl1Health.wait_time = 3
+	owl2Health.wait_time = 10
 	time.start() #Starts timer
 	
 #Plays the first stage enemy form

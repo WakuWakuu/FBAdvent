@@ -11,13 +11,17 @@ onready var meleeCircle = $melee
 onready var bulletScene = load("res://Scenes/playerBullet.tscn")
 onready var canShoot = true
 onready var shootingSpeed = 0.2
-onready var anim = $AnimatedSprite
+onready var anim = $Sprite
+onready var shadow = $Shadow
 
 
 
 #Sets player as a bullet target when game launches
 func _ready():
 	BHPatternManager.register_bullet_target(self)
+	anim.play("default")
+	shadow.play("default")
+	
 	
 func movement_input():
 
@@ -55,10 +59,13 @@ func movement_input():
 	#Animation handler
 	if velocity.x > 0:
 		anim.animation = "right"
+		shadow.animation = "left"
 	elif velocity.x < 0:
 		anim.animation = "left"
+		shadow.animation = "right"
 	elif velocity.x == 0:
 		anim.animation = "default"
+		shadow.animation = "default"
 		
 	#Sets velocity
 	velocity = velocity.normalized() * speed
@@ -94,7 +101,11 @@ func on_hit():
 		death()
 	
 func death():
-	$sfx.play()
+	
+	#Overlaying two sound effects because I just found out how cool they sound together
+	$deathParticles.emitting = true
+	$death2.play()
+	$death.play()
 	emit_signal("death")
 	print("hit")
 	$invincibility.start()
@@ -105,3 +116,8 @@ func _on_invincibility_timeout():
 func line():
 	var circle = draw_circle(Vector2(1,1),10, "black")
 	#circle.global_position = $Position2D
+
+
+
+func _on_deathTimer_timeout():
+	pass # Replace with function body.
