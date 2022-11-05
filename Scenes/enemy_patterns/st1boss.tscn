@@ -31,3 +31,6 @@ position = Vector2( 297, 128 )
 [connection signal="timeout" from="Start" to="." method="_on_Start_timeout"]
 [connection signal="timeout" from="Shoot" to="." method="_on_Shoot_timeout"]
 [connection signal="phase1End" from="OwlGirl" to="." method="_on_OwlGirl_phase1End"]
+[connection signal="phase2End" from="OwlGirl" to="." method="_on_OwlGirl_phase2End"]
+[connection signal="phase3End" from="OwlGirl" to="." method="_on_OwlGirl_phase3End"]
+[connection signal="phase4End" from="OwlGirl" to="." method="_on_OwlGirl_phase4End"]

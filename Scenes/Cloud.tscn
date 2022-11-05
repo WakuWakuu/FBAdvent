@@ -4,6 +4,7 @@
 [ext_resource path="res://Scripts/Cloud.gd" type="Script" id=2]
 
 [node name="Cloud" type="Sprite"]
+modulate = Color( 1, 1, 1, 0.870588 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )

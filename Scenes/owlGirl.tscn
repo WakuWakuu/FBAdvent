@@ -65,7 +65,7 @@ texture = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="hitbox" type="Area2D" parent="."]
@@ -82,7 +82,7 @@ disabled = true
 [node name="Position2D" type="Position2D" parent="."]
 
 [node name="Health" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 30.0
 
 [node name="Immunity" type="Timer" parent="."]
 one_shot = true

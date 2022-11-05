@@ -12,6 +12,9 @@ var health = 5
 var phase = 1
 
 signal phase1End
+signal phase2End
+signal phase3End
+signal phase4End
 
 func _ready():
 	yield(get_tree().create_timer(0.5), "timeout")
@@ -33,7 +36,7 @@ func _on_hitbox_area_entered(area):
 				#print(health)
 				
 				if health <= 0 and phase == 1:
-					#Spawns apple
+
 					#$sfx.play()
 					yield(get_tree().create_timer(0.1), "timeout")
 					phase += 1
@@ -42,22 +45,34 @@ func _on_hitbox_area_entered(area):
 					$spellChange.emitting = true
 					$spellChange.emitting = false
 					
+				if health <= 0 and phase == 2:
+
+					#$sfx.play()
+					yield(get_tree().create_timer(0.1), "timeout")
+					phase += 1
+					emit_signal("phase2End")
+					health = int($Health.wait_time)
+					$spellChange.emitting = true
+					$spellChange.emitting = false
 					
-					#Kills the owl add
-					#queue_free()
-					#call_deferred("free")
-				
-			#note to self, add powerup drop to enemies if their health is 
+				if health <= 0 and phase == 3:
 
-#Movements are controlled by AnimationPlayers, so there is no code here for that.
-#Attacks are controlled by the enemy form scripts.
+					#$sfx.play()
+					yield(get_tree().create_timer(0.1), "timeout")
+					phase += 1
+					emit_signal("phase3End")
+					health = int($Health.wait_time)
+					$spellChange.emitting = true
+					$spellChange.emitting = false
+					
+				if health <= 0 and phase == 4:
 
-
-func _on_meleeRange_area_entered(area):
-	if area.name == "meleeArea":
-		melee = true
-
-
-func _on_meleeRange_area_exited(area):
-	if area.name == "meleeArea":
-		melee = false
+					#$sfx.play()
+					yield(get_tree().create_timer(0.1), "timeout")
+					phase += 1
+					emit_signal("phase4End")
+					health = int($Health.wait_time)
+					$spellChange.emitting = true
+					$spellChange.emitting = false
+					
+					
