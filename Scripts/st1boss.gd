@@ -4,6 +4,7 @@ extends Node2D
 onready var anim = $AnimationPlayer
 onready var time = $Start
 onready var bullStart = $bull
+onready var healthBar = $Health/HealthBar
 
 onready var add1 = load("res://Scenes/patterns/owlatt1.tscn")
 onready var add2 = load("res://Scenes/patterns/owlatt2.tscn")
@@ -29,6 +30,11 @@ var canShoot = false
 func _ready():
 	time.start() #Starts timer
 	
+func _process(delta):
+	healthBar.value = boss.giveHealth()
+	healthBar.max_value = bossHealth.wait_time
+
+
 #Plays the first stage enemy form
 func _on_Start_timeout():
 	

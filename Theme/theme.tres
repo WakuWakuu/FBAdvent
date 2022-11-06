@@ -17,4 +17,5 @@ font_data = ExtResource( 1 )
 [resource]
 default_font = SubResource( 7 )
 /fonts/default = SubResource( 7 )
+ProgressBar/styles/bg = null
 small/fonts/small = SubResource( 8 )

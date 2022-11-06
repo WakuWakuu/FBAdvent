@@ -11,10 +11,16 @@ var health = 5
 
 var phase = 1
 
+var canEmit = false
+
 signal phase1End
 signal phase2End
 signal phase3End
 signal phase4End
+
+func _process(delta):
+	if immunity == false:
+		BHPatternManager.deregister_other_collider($bulletPhaseClear)
 
 func _ready():
 	yield(get_tree().create_timer(0.5), "timeout")
@@ -36,43 +42,46 @@ func _on_hitbox_area_entered(area):
 				#print(health)
 				
 				if health <= 0 and phase == 1:
-
-					#$sfx.play()
-					yield(get_tree().create_timer(0.1), "timeout")
-					phase += 1
+					
+					phaseChange()
+					yield(get_tree().create_timer(1.5), "timeout")
 					emit_signal("phase1End")
-					health = int($Health.wait_time)
-					$spellChange.emitting = true
-					$spellChange.emitting = false
+					
 					
 				if health <= 0 and phase == 2:
 
-					#$sfx.play()
-					yield(get_tree().create_timer(0.1), "timeout")
-					phase += 1
+					phaseChange()
+					yield(get_tree().create_timer(1.5), "timeout")
 					emit_signal("phase2End")
-					health = int($Health.wait_time)
-					$spellChange.emitting = true
-					$spellChange.emitting = false
+					
 					
 				if health <= 0 and phase == 3:
 
-					#$sfx.play()
-					yield(get_tree().create_timer(0.1), "timeout")
-					phase += 1
+					phaseChange()
+					yield(get_tree().create_timer(1.5), "timeout")
 					emit_signal("phase3End")
-					health = int($Health.wait_time)
-					$spellChange.emitting = true
-					$spellChange.emitting = false
+					
 					
 				if health <= 0 and phase == 4:
 
-					#$sfx.play()
-					yield(get_tree().create_timer(0.1), "timeout")
-					phase += 1
+					phaseChange()
+					yield(get_tree().create_timer(1.5), "timeout")
 					emit_signal("phase4End")
-					health = int($Health.wait_time)
-					$spellChange.emitting = true
-					$spellChange.emitting = false
 					
 					
+func phaseChange():
+	BHPatternManager.register_other_collider($bulletPhaseClear)
+	$sfx.play()
+	immunity = true
+	$spellChange.emitting = true
+	#$changeTimer.start()
+	yield(get_tree().create_timer(1.5), "timeout")
+	immunity = false
+	phase += 1
+	health = int($Health.wait_time)
+	
+func giveHealth():
+	return health
+
+#func _on_changeTimer_timeout():
+	#pass # Replace with function body.

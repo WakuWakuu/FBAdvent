@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/chara/owgirl-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/owlGirl.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/chara/hitbox.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/sfx/swoosh enemy.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Scripts/clear.gd" type="Script" id=5]
 
 [sub_resource type="ParticlesMaterial" id=7]
 lifetime_randomness = 0.31
@@ -49,6 +51,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 96, 20 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 1406.16, 962.743 )
+
 [node name="Owl Girl" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -57,6 +62,7 @@ self_modulate = Color( 1, 1, 1, 0.47451 )
 emitting = false
 amount = 20
 lifetime = 2.0
+one_shot = true
 speed_scale = 3.5
 explosiveness = 1.0
 randomness = 1.0
@@ -65,7 +71,7 @@ texture = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="hitbox" type="Area2D" parent="."]
@@ -87,6 +93,22 @@ wait_time = 80.0
 [node name="Immunity" type="Timer" parent="."]
 one_shot = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 4.0
+
+[node name="changeTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="bulletPhaseClear" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bulletPhaseClear"]
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 8 )
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="changeTimer" to="." method="_on_changeTimer_timeout"]

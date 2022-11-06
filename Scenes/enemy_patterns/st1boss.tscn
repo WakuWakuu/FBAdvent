@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/owlGirl.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/st1boss.gd" type="Script" id=2]
+[ext_resource path="res://Theme/theme.tres" type="Theme" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -26,6 +27,25 @@ one_shot = true
 
 [node name="OwlGirl" parent="." instance=ExtResource( 1 )]
 position = Vector2( 297, 128 )
+
+[node name="Health" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Name" type="RichTextLabel" parent="Health"]
+margin_left = 48.0
+margin_top = 24.0
+margin_right = 624.0
+margin_bottom = 66.0
+rect_scale = Vector2( 0.8, 0.8 )
+theme = ExtResource( 3 )
+text = " Owl girl"
+scroll_active = false
+
+[node name="HealthBar" type="ProgressBar" parent="Health"]
+margin_left = 48.0
+margin_top = 56.0
+margin_right = 624.0
+margin_bottom = 76.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Start" to="." method="_on_Start_timeout"]
