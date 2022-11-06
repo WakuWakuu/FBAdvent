@@ -74,7 +74,6 @@ func phaseChange():
 	$sfx.play()
 	immunity = true
 	$spellChange.emitting = true
-	#$changeTimer.start()
 	yield(get_tree().create_timer(1.5), "timeout")
 	immunity = false
 	phase += 1
