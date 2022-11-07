@@ -24,7 +24,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( 160, -0.25, 0, 0.3, 80.8611, 160, -0.3, 14.3028, 0.25, 0, 160, -0.25, 0, 0.25, 0, 64, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 5, 10 )
+"times": PoolRealArray( 0, 1.5, 5, 10 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("Owl2:position:x")
@@ -52,7 +52,7 @@ position = Vector2( 311, 128 )
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_speed = 0.5
+playback_speed = 0.8
 "anims/New Anim" = SubResource( 1 )
 
 [node name="Owl" parent="." instance=ExtResource( 1 )]

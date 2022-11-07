@@ -11,7 +11,6 @@ void fragment(){
 	vec2 distort = SCREEN_UV + texture(TEXTURE, UV).a * distort_effect;
 	vec4 distortTex = texture(SCREEN_TEXTURE, distort);
 	COLOR = distortTex;
-	
 }
 
 void vertex(){

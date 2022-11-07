@@ -12,11 +12,14 @@ var health = 5
 var phase = 1
 
 var canEmit = false
+var damageStart = false
 
 signal phase1End
 signal phase2End
 signal phase3End
 signal phase4End
+signal phase5End
+signal fightEnd
 
 func _process(delta):
 	if immunity == false:
@@ -34,7 +37,7 @@ func _ready():
 #Called when something enters the owl's hitbox
 func _on_hitbox_area_entered(area):
 		
-		if immunity == false:
+		if immunity == false and damageStart == true:
 			#Checks if the hitbox is a bullet
 			if area.name == "hitboxBull":
 				health -= 1
@@ -68,10 +71,22 @@ func _on_hitbox_area_entered(area):
 					yield(get_tree().create_timer(1.5), "timeout")
 					emit_signal("phase4End")
 					
+				if health <= 0 and phase == 5:
+					phaseChange()
+					yield(get_tree().create_timer(1.5), "timeout")
+					emit_signal("phase5End")
+					
+				if health <= 0 and phase == 6:
+					phaseChange()
+					yield(get_tree().create_timer(1.5), "timeout")
+					emit_signal("fightEnd")
+					immunity = true
+					
 					
 func phaseChange():
 	BHPatternManager.register_other_collider($bulletPhaseClear)
 	$sfx.play()
+	$charge.play()
 	immunity = true
 	$spellChange.emitting = true
 	yield(get_tree().create_timer(1.5), "timeout")
@@ -82,5 +97,7 @@ func phaseChange():
 func giveHealth():
 	return health
 
+func enableDamage():
+	damageStart = true
 #func _on_changeTimer_timeout():
 	#pass # Replace with function body.
