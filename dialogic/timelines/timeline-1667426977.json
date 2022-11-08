@@ -22,6 +22,11 @@
 			"z_index": 0
 		},
 		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 1
+		},
+		{
 			"character": "character-1667425259.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
@@ -148,7 +153,7 @@
 			"character": "character-1667425299.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "[tornado radius=3 freq=3]Hehe, [speed=50][speed=3]looks like I've made you angry!"
+			"text": "Hehe, [speed=50][speed=3]looks like I've made you angry! ♪♬"
 		},
 		{
 			"character": "character-1667425259.json",
@@ -166,7 +171,7 @@
 			"character": "character-1667425299.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "[tornado radius=3 freq=3]Excellent! [/tornado][speed=50][speed=3]I look forward to seeing you lose~!"
+			"text": "Excellent! I look forward to seeing you lose~! ♪"
 		},
 		{
 			"event_id": "dialogic_022",

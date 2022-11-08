@@ -4,7 +4,8 @@ extends Node2D
 onready var anim = $animations
 onready var time = $Start
 onready var bullStart = $bull
-onready var healthBar = $Health/HealthBar
+onready var healthBar = $GUI/HealthBar
+onready var spellName = $GUI/SpellName
 
 onready var add1 = load("res://Scenes/patterns/owlatt1.tscn")
 onready var add2 = load("res://Scenes/patterns/owlatt2.tscn")
@@ -35,11 +36,39 @@ var canShoot = false
 var canSpin = false
 var spinDirec = 0.0
 
+var thread
+var phase1thread
+var phase2thread
+var phase3thread
+var phase4thread
+var phase5thread
+var phase1Start = false
+var phase2Start = false
+var phase3Start = false
+var phase4Start = false
+var phase5Start = false
+
+var defeated = false
+
 func _ready():
+	thread = Thread.new()
+	phase1thread = Thread.new()
+	phase2thread = Thread.new()
+	phase3thread = Thread.new()
+	#phase4thread = Thread.new()
+	phase5thread = Thread.new()
+	thread.start(self,"start")
+	phase1thread.start(self, "phase1")
+	phase2thread.start(self, "phase2")
+	phase3thread.start(self, "phase3")
+	#phase4thread.start(self, "phase4")
+	phase5thread.start(self, "phase5")
+	
+
+func start():
 	$fadeIn.current_animation = "fadeIn"
 	anim.current_animation = "flyIn"
 
-# Called when the node enters the scene tree for the first time.
 func started():
 	time.start() #Starts timer
 	
@@ -48,7 +77,7 @@ func _process(delta):
 	healthBar.max_value = bossHealth.wait_time
 
 
-#Plays the first stage enemy form
+
 func _on_Start_timeout():
 	boss.enableDamage()
 	
@@ -82,7 +111,9 @@ func _on_Start_timeout():
 
 
 func _on_Shoot_timeout():
+	
 	if bossref.get_ref():
+		spellName.text = " Spell:『Snow Storm』"
 		anim.playback_speed = 0.6
 		anim.playback_default_blend_time = 1.5
 		anim.current_animation = "phase1"
@@ -94,17 +125,20 @@ func _on_Shoot_timeout():
 		canSpin = true
 		spin(att1, 10.0)
 		#att2.enable()
-		
+
 	bullStart.start()
 
 
 func _on_OwlGirl_phase1End():
 	if bossref.get_ref():
+		
+		spellName.text = " Spell:『The Storm and the Seas』"
 		anim.playback_speed = 1
 		anim.playback_default_blend_time = 0.8
 		anim.current_animation = "phase2"
 		canSpin = false
 		att1.disable()
+		yield(get_tree().create_timer(1), "timeout")
 		boss.add_child(att2_1)
 		boss.add_child(att2)
 		att2.global_position = boss.global_position
@@ -114,9 +148,10 @@ func _on_OwlGirl_phase1End():
 		att2.enable()
 		
 
-
 func _on_OwlGirl_phase2End():
+
 	if bossref.get_ref():
+		spellName.text = " Spell:『Autumn Fall』"
 		att2.disable()
 		att2_1.disable()
 		boss.add_child(att3)
@@ -127,13 +162,15 @@ func _on_OwlGirl_phase2End():
 
 func _on_OwlGirl_phase3End():
 	if bossref.get_ref():
+		spellName.text = " Spell:『Hurricane Travesty』"
+		anim.playback_speed = 1.2
 		anim.playback_default_blend_time = 1.5
 		anim.current_animation = "phase4"
 		att3.disable()
 		yield(get_tree().create_timer(1.5), "timeout")
 		boss.add_child(att4)
 		att4.global_position = boss.global_position
-		
+
 		att4.set_aim_target(player)
 		att4.enable()
 
@@ -147,6 +184,7 @@ func _on_OwlGirl_phase4End():
 		att4.enable()
 		att4_1.enable()
 
+
 func _on_OwlGirl_phase5End():
 	if bossref.get_ref():
 		att4.disable()
@@ -159,10 +197,14 @@ func _on_OwlGirl_phase5End():
 		att4_2.enable()
 
 func _on_OwlGirl_fightEnd():
+	anim.playback_default_blend_time = 0.8
+	anim.current_animation = "phase2"
+	spellName.text = "「DEFEATED」"
 	att4.disable()
 	att4_1.disable()
 	att4_2.disable()
 	healthBar.visible = false
+	defeated = true
 	
 	
 #I can't get this function to work :(
@@ -175,7 +217,8 @@ func spin(att, spinSpeed : float):
 		yield(get_tree().create_timer(0.1), "timeout")
 
 func isDefeated():
-	if !healthBar.visible:
+	if defeated:
 		return true
 	else:
 		return false
+

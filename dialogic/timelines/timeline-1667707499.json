@@ -126,7 +126,7 @@
 			"character": "character-1667425299.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "[tornado radius=3 freq=3]Looks like your apples are in another castle now~"
+			"text": "Looks like your apples are in another castle now~ ♬♫"
 		},
 		{
 			"animation": "shake_x.gd",

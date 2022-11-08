@@ -61,15 +61,14 @@ var current_rotation := 0.0
 var shooting := false
 
 var base_timer : Timer
+var ref_base_timer = weakref(base_timer)
 var initial_wait_timer : Timer
 var between_bullet_timer : Timer
 
 var rotated_dir : Vector2
 
 
-
 func _ready():
-	
 	
 	base_timer = $Timer
 	base_timer.wait_time = bullet_cooldown
@@ -79,6 +78,17 @@ func _ready():
 	base_timer.connect("timeout", self, "_on_timer_timeout")
 	between_bullet_timer = $BetweenShotTimer
 	if cooldown_between_bullets > 0.0: between_bullet_timer.wait_time = cooldown_between_bullets
+
+	setup_shell()
+
+	set_physics_process(not aiming_bullet and is_rotating)
+
+	if get_tree().current_scene == self:
+		var testing_container := Node2D.new()
+		add_child(testing_container)
+		testing_container.global_position = Vector2()
+		BHPatternManager.register_bullet_container(testing_container)
+		enable()
 	
 	setup_shell()
 	
@@ -90,7 +100,7 @@ func _ready():
 		testing_container.global_position = Vector2()
 		BHPatternManager.register_bullet_container(testing_container)
 		enable()
-
+		
 func setup_shell():
 	for property in shell_settings.keys():
 		shell.set(property, shell_settings[property])
@@ -161,9 +171,10 @@ func set_initial_wait_cooldown(new_cooldown : float):
 
 func disable():
 	shooting = false
-	base_timer.stop()
-	base_timer.one_shot = true
-	$InShotTimer.stop()
+	if ref_base_timer.get_ref():
+		base_timer.stop()
+		base_timer.one_shot = true
+		$InShotTimer.stop()
 	
 	for child_pattern in get_children():
 		if not child_pattern.get_class() == self.get_class(): continue

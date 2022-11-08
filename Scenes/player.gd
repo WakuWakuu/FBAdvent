@@ -3,18 +3,27 @@ extends KinematicBody2D
 signal death
 
 onready var velocity = Vector2()
-onready var speed = 340
+onready var speed
 
 #onready var spawnBullet = get_node("playerBullet")
 onready var hitboxSprite = $hitbox
 onready var meleeCircle = $melee
 onready var bulletScene = load("res://Scenes/playerBullet.tscn")
 onready var canShoot = true
-onready var shootingSpeed = 0.2
+onready var shootingSpeed 
 onready var anim = $Sprite
 onready var shadow = $Shadow
+onready var skillMachineGun = $Skills/machineGunSkill
 
+var skillList = [
+	
+	"machineGun"
+	
+]
 
+var machineGun = false
+var skillDuration1 = false
+var canActivate = true
 
 #Sets player as a bullet target when game launches
 func _ready():
@@ -30,6 +39,8 @@ func movement_input():
 	speed = 340
 	hitboxSprite.visible = false
 	meleeCircle.visible = false
+	if !machineGun:
+		shootingSpeed = 0.2
 	
 	#Movement
 	if Input.is_action_pressed("left"):
@@ -56,6 +67,13 @@ func movement_input():
 			#Activates the bullets
 			shootBull()
 		
+	if Input.is_action_just_pressed("skill"):
+		if canActivate == true:
+			machineGun()
+			canActivate = false
+		
+
+	
 	#Animation handler
 	if velocity.x > 0:
 		anim.animation = "right"
@@ -121,3 +139,33 @@ func line():
 
 func _on_deathTimer_timeout():
 	pass # Replace with function body.
+
+
+func _on_Scene_powerSkillActivate():
+	
+	var skill = randSkill(skillList)
+	
+	if skill == skillList[0]:
+		
+		machineGun = true
+		
+
+
+func randSkill(skills):
+	return skillList[randi() % skills.size()]
+
+
+func machineDuration():
+	machineGun = false
+	canActivate = true
+
+func machineGun():
+	skillMachineGun.get_node("powerup").emitting = true
+	if skillMachineGun.get_node("Duration").is_stopped():
+		skillMachineGun.get_node("Duration").start()
+	while machineGun == true:	
+		shootingSpeed = 0.1
+		yield(get_tree().create_timer(shootingSpeed), "timeout")
+		
+	skillMachineGun.get_node("powerup").emitting = false
+	#shootingSpeed = 0.2

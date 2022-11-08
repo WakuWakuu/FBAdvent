@@ -21,10 +21,14 @@ var form4Loop = 1
 signal bossStart
 signal start
 
-func _ready():	
-	$start1.start()
-	
+var thread
 
+func _ready():	
+	stageStart()
+	
+	
+func stageStart():
+	$start1.start()
 
 
 func _on_start1_timeout():
@@ -46,36 +50,31 @@ func _process(delta):
 
 	
 
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	for i in form2Loop:
 		var form2Instanced = form2.instance()
 		add_child(form2Instanced)
 		yield(get_tree().create_timer(2), "timeout")
-		
+
 	yield(get_tree().create_timer(3), "timeout")
-	
+
 	for i in form3Loop:
 		var form3Instanced = form3.instance()
 		add_child(form3Instanced)
 		var form2Instanced = form2.instance()
 		add_child(form2Instanced)
 		yield(get_tree().create_timer(4), "timeout")
-		
+
 	for i in form4Loop:
 		var form4Instanced = form4.instance()
 		add_child(form4Instanced)
 		yield(get_tree().create_timer(6), "timeout")
-	
+
 	$dialogueStart.start()
 	
-	
-
-	
-
 
 func _on_dialogueStart_timeout():
-	var encounterDialogue = Dialogic.start("OG-encounter")
+	var encounterDialogue = Dialogic.start("OG-encounter2")
 	add_child(encounterDialogue)
 	emit_signal("bossStart")
 	var bossInstanced = boss.instance()
@@ -93,5 +92,4 @@ func _on_dialogueStart_timeout():
 		pass
 	var defeated = Dialogic.start("OG-defeated2")
 	add_child(defeated)
-
 

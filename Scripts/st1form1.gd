@@ -76,6 +76,7 @@ func _on_Start_timeout():
 		bullStart.start()
 	
 
+
 #Kills scene after some time
 func _on_AnimationPlayer_animation_finished(anim_name):
 	queue_free()

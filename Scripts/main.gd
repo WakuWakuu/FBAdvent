@@ -8,6 +8,8 @@ var frozen = false
 
 
 signal appleCollected
+signal powerCollected
+signal powerSkillActivate
 
 onready var player = get_node("chars/player")
 onready var appleGroup = get_tree().get_nodes_in_group("Apple")
@@ -28,7 +30,7 @@ func _ready():
 
 func _process(delta):
 	
-	appleCheck(); meleeCheck()
+	appleCheck(); meleeCheck(); powerCheck()
 	BHPatternManager.deregister_other_collider(bulletClearArea)
 				
 	
@@ -57,6 +59,10 @@ func powerGauge():
 	$Music/SFX/powerLevelUp.play()
 	print(power)
 
+func powerSkill():
+	emit_signal("powerSkillActivate")
+	print("collected")
+
 func meleeCheck():
 	if get_tree().get_nodes_in_group("Owl").empty() != true:
 			for i in get_tree().get_nodes_in_group("Owl").size():
@@ -70,6 +76,13 @@ func appleCheck():
 			var apples = get_tree().get_nodes_in_group("Apple")
 			if not apples[i].is_connected("appleCollected", self, "appleCount"):
 				apples[i].connect("appleCollected", self, "appleCount")
+
+func powerCheck():
+	if get_tree().get_nodes_in_group("Powerup").empty() != true:
+		for i in get_tree().get_nodes_in_group("Powerup").size():
+			var power = get_tree().get_nodes_in_group("Powerup")
+			if not power[i].is_connected("powerCollected", self, "powerSkill"):
+				power[i].connect("powerCollected", self, "powerSkill")		
 
 func _on_player_death():
 	
