@@ -15,15 +15,17 @@ onready var anim = $Sprite
 onready var shadow = $Shadow
 onready var skillMachineGun = $Skills/machineGunSkill
 
-var skillList = [
-	
-	"machineGun"
-	
-]
+
 
 var machineGun = false
 var skillDuration1 = false
 var canActivate = true
+
+var skillList = [
+	
+	"Machine Gun"
+	
+]
 
 #Sets player as a bullet target when game launches
 func _ready():
@@ -131,14 +133,9 @@ func death():
 func _on_invincibility_timeout():
 	pass
 
-func line():
-	var circle = draw_circle(Vector2(1,1),10, "black")
-	#circle.global_position = $Position2D
-
-
 
 func _on_deathTimer_timeout():
-	pass # Replace with function body.
+	pass 
 
 
 func _on_Scene_powerSkillActivate():
@@ -150,10 +147,8 @@ func _on_Scene_powerSkillActivate():
 		machineGun = true
 		
 
-
 func randSkill(skills):
 	return skillList[randi() % skills.size()]
-
 
 func machineDuration():
 	machineGun = false

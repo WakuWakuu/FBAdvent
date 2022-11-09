@@ -11,6 +11,8 @@ signal appleCollected
 signal powerCollected
 signal powerSkillActivate
 
+onready var loadingScreen = load("res://Scenes/Loading.tscn")
+
 onready var player = get_node("chars/player")
 onready var appleGroup = get_tree().get_nodes_in_group("Apple")
 
@@ -131,3 +133,8 @@ func appleClear():
 			appleGroup[i].connect("_on_Apple_area_entered", self, "appleClear")
 			emit_signal("_on_Apple_area_entered")
 		
+
+
+func stageChange():
+	var loading = loadingScreen.instance()
+	get_node("GUI/Control/Loading").add_child(loading)

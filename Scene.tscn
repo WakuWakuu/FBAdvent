@@ -330,3 +330,4 @@ shape = SubResource( 17 )
 
 [connection signal="powerSkillActivate" from="." to="chars/player" method="_on_Scene_powerSkillActivate"]
 [connection signal="death" from="chars/player" to="." method="_on_player_death"]
+[connection signal="changeStage" from="Stage/Stage1" to="." method="stageChange"]

@@ -77,13 +77,14 @@ shell_settings = {
 
 [node name="BulletPattern2" parent="." instance=ExtResource( 6 )]
 bullet_scene = ExtResource( 5 )
-bullet_cooldown = 0.7
+bullet_cooldown = 0.3
 bullet_num = 10
 cooldown_between_bullets = 0.1
 spread = 360.0
 direction = Vector2( -4.37114e-08, 1 )
+randomize_direction = 60.0
 shell_settings = {
-"acceleration": -60.0,
+"acceleration": -40.0,
 "gradient": SubResource( 3 ),
 "lifetime": 20.0,
 "oob_check_time": 5.0,

@@ -20,6 +20,7 @@ var form4Loop = 1
 
 signal bossStart
 signal start
+signal changeStage
 
 var thread
 
@@ -92,4 +93,11 @@ func _on_dialogueStart_timeout():
 		pass
 	var defeated = Dialogic.start("OG-defeated2")
 	add_child(defeated)
+	while Dialogic.has_current_dialog_node():
+		yield(get_tree().create_timer(0.5), "timeout")
+		pass
+	if !Dialogic.has_current_dialog_node():
+		emit_signal("changeStage")
+		get_parent().get_parent().get_node("Music/boss1").stop()
+		
 
