@@ -17,6 +17,7 @@ onready var player = get_node("chars/player")
 onready var appleGroup = get_tree().get_nodes_in_group("Apple")
 
 onready var appleCounter = get_node("GUI/Control/In-game/Score/AppCounter")
+onready var skillDisplay = get_node("GUI/Control/In-game/Score/SkillName")
 onready var life1 = get_node("GUI/Control/In-game/Score/Lives/CanvasLayer/life1")
 onready var life2 = get_node("GUI/Control/In-game/Score/Lives/CanvasLayer/life2")
 onready var life3 = get_node("GUI/Control/In-game/Score/Lives/CanvasLayer/life3")
@@ -32,7 +33,7 @@ func _ready():
 
 func _process(delta):
 	
-	appleCheck(); meleeCheck(); powerCheck()
+	appleCheck(); meleeCheck(); powerCheck(); skillCheck()
 	BHPatternManager.deregister_other_collider(bulletClearArea)
 				
 	
@@ -86,6 +87,10 @@ func powerCheck():
 			var power = get_tree().get_nodes_in_group("Powerup")
 			if not power[i].is_connected("powerCollected", self, "powerSkill"):
 				power[i].connect("powerCollected", self, "powerSkill")		
+
+func skillCheck():
+	var skill = player.getCurrentSkill()
+	skillDisplay.text = skill
 
 func _on_player_death():
 	

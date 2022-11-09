@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Stages/Stage1.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Theme/theme.tres" type="Theme" id=8]
 [ext_resource path="res://Scripts/main.gd" type="Script" id=9]
 [ext_resource path="res://Sounds/sfx/applecollect.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Theme/fonts/NotoSerifJP-Regular.otf" type="DynamicFontData" id=11]
 [ext_resource path="res://Scripts/clear.gd" type="Script" id=12]
 [ext_resource path="res://Sprites/gui/power/power1.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/gui/powerframe.png" type="Texture" id=14]
@@ -42,6 +43,10 @@ frame_6/texture = ExtResource( 17 )
 frame_6/delay_sec = 0.0
 frame_7/texture = ExtResource( 18 )
 frame_7/delay_sec = 0.0
+
+[sub_resource type="DynamicFont" id=21]
+size = 25
+font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=19]
 size = 30
@@ -213,6 +218,25 @@ margin_top = 448.0
 margin_right = 1400.0
 margin_bottom = 560.0
 color = Color( 0, 0, 0, 0.329412 )
+
+[node name="Skill" type="RichTextLabel" parent="GUI/Control/In-game/Score"]
+margin_left = 1224.0
+margin_top = 592.0
+margin_right = 1336.0
+margin_bottom = 648.0
+theme = ExtResource( 8 )
+text = "SKILL"
+scroll_active = false
+
+[node name="SkillName" type="RichTextLabel" parent="GUI/Control/In-game/Score"]
+anchor_right = 0.486
+margin_left = 1136.0
+margin_top = 640.0
+margin_right = 1404.56
+margin_bottom = 720.0
+theme = ExtResource( 8 )
+custom_fonts/normal_font = SubResource( 21 )
+scroll_active = false
 
 [node name="game label" type="RichTextLabel" parent="GUI/Control/In-game"]
 margin_left = 1120.0

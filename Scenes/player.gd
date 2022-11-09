@@ -164,3 +164,9 @@ func machineGun():
 		
 	skillMachineGun.get_node("powerup").emitting = false
 	#shootingSpeed = 0.2
+
+func getCurrentSkill():
+	if machineGun == true:
+		return " Machine Gun"
+	else:
+		return ""
