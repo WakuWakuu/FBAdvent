@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Theme/fonts/LibreBaskerville-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scripts/Stage1.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Stage1-rewrite.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/tileScroll.gd" type="Script" id=3]
 [ext_resource path="res://Theme/theme.tres" type="Theme" id=4]
 [ext_resource path="res://Sprites/misc/tilesheet.png" type="Texture" id=5]

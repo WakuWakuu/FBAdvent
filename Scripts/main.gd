@@ -64,6 +64,7 @@ func powerGauge():
 func powerSkill():
 	emit_signal("powerSkillActivate")
 	print("collected")
+	$Music/SFX/skillCollect.play()
 
 func meleeCheck():
 	if get_tree().get_nodes_in_group("Owl").empty() != true:

@@ -147,7 +147,7 @@ shape = SubResource( 1 )
 
 [node name="death2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -3.0
+volume_db = -4.0
 
 [node name="invincibility" type="Timer" parent="."]
 one_shot = true
@@ -159,7 +159,7 @@ pitch_scale = 1.05
 
 [node name="death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = 6.5
+volume_db = 5.5
 pitch_scale = 1.29
 
 [node name="deathTimer" type="Timer" parent="."]

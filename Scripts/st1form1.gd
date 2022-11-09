@@ -29,11 +29,14 @@ onready var player = get_tree().get_nodes_in_group("player").front()
 var canShoot = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	#$AnimationPlayer.connect("shoot", self, "on_shoot")
-	owl1Health.wait_time = 2
-	owl2Health.wait_time = 2
-	print(owl1Health)
+func ready():
+	
+	if owl1ref.get_ref():
+		owl1.ready()
+		owl1Health.wait_time = 2
+	if owl2ref.get_ref():
+		owl2.ready()
+		owl2Health.wait_time = 2
 	time.start() #Starts timer
 	
 	

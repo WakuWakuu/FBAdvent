@@ -66,6 +66,8 @@ func _ready():
 	
 
 func start():
+	
+	yield(get_tree().create_timer(3), "timeout")
 	$fadeIn.current_animation = "fadeIn"
 	anim.current_animation = "flyIn"
 

@@ -180,7 +180,7 @@ one_shot = true
 one_shot = true
 
 [node name="OwlGirl" parent="." instance=ExtResource( 1 )]
-position = Vector2( 649, 128 )
+position = Vector2( 841, 128 )
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = 4

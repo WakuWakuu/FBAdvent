@@ -57,7 +57,7 @@
 			"character": "character-1667425259.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "[speed=4]..Aand just as I say that, [speed=15][speed=3]it starts getting cloudy. This day can't keep getting worse!\nHey you, [speed=50][speed=2]are you the one who organized all of this?!"
+			"text": "[speed=4]..Aand just as I say that, [speed=15][speed=3]it starts getting cloudy. [speed=50][speed=3]This day can't keep getting worse!\nHey you, [speed=50][speed=2]are you the one who organized all of this?!"
 		},
 		{
 			"character": "character-1667425299.json",
@@ -102,13 +102,13 @@
 			"character": "character-1667425259.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Quit mocking me! I was just about to have a picnic before you got those owls to steal all my apples! Who are you even?!"
+			"text": "Quit mocking me! [speed=50][speed=3]I was just about to have a picnic before you got those owls to steal all my apples! [speed=50][speed=2]Who are you even?!"
 		},
 		{
 			"character": "character-1667425299.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "You don't remember me~? That's a shame."
+			"text": "You don't remember me~? [speed=50][speed=3]That's a shame."
 		},
 		{
 			"character": "character-1667425259.json",
@@ -120,7 +120,7 @@
 			"character": "character-1667425299.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "[tornado radius=3 freq=3]Ouchie, my feelings~! Hehe.\nHowever, I'll have you know that I'm the god of the weather. I don't think you'll want to cross someone like me!"
+			"text": "I'll have you know that I am not the weakling you think I am.. [speed=50][speed=3]I don't think you'll want to cross someone like me!"
 		},
 		{
 			"animation": "shake_x.gd",
@@ -147,31 +147,25 @@
 			"character": "character-1667425259.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "I don't care if you're a god or the creator of this universe, I will make sure I get my apples back!"
+			"text": "I don't care how strong you are, [speed=15][speed=3]I will make sure I get my apples back!"
 		},
 		{
 			"character": "character-1667425299.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Ooh, how determined! ♪♬"
+			"text": "Ooh, [speed=20][speed=3]how determined! ♪"
 		},
 		{
 			"character": "character-1667425259.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Come at me with all you got, snowman!"
+			"text": "Come at me with all you got!"
 		},
 		{
 			"character": "character-1667425299.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": ""
-		},
-		{
-			"character": "character-1667425299.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "Excellent! I look forward to seeing you lose~! ♪"
+			"text": "Oh, [speed=15][speed=3]you don't know what you're in for! [speed=50][speed=3]Hehe~"
 		},
 		{
 			"event_id": "dialogic_022",

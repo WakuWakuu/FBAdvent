@@ -31,3 +31,7 @@ func _on_hitboxBull_area_entered(area):
 	var playerCheck = area.get_parent().get_node("/root/Scene/chars/player")
 	if area.name == "hitbox":
 		_on_killTimer_timeout()
+	if area.is_in_group("Boundary"):
+		_on_killTimer_timeout()
+		print("worked")
+		

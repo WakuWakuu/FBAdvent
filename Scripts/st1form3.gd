@@ -21,8 +21,10 @@ onready var player = get_tree().get_nodes_in_group("player").front()
 var canShoot = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	owl1Health.wait_time = 2
+func ready():
+	if owl1ref.get_ref():
+		owl1.ready()
+		owl1Health.wait_time = 2
 	time.start() #Starts timer
 	
 #Plays the first stage enemy form
