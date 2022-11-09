@@ -12,7 +12,7 @@ onready var bulletScene = load("res://Scenes/playerBullet.tscn")
 onready var canShoot = true
 onready var shootingSpeed 
 onready var anim = $Sprite
-onready var shadow = $Shadow
+
 onready var skillMachineGun = $Skills/machineGunSkill
 
 
@@ -31,7 +31,6 @@ var skillList = [
 func _ready():
 	BHPatternManager.register_bullet_target(self)
 	anim.play("default")
-	shadow.play("default")
 	
 	
 func movement_input():
@@ -65,9 +64,10 @@ func movement_input():
 		
 	
 	if Input.is_action_pressed("shoot"):
-		if canShoot == true:
-			#Activates the bullets
-			shootBull()
+		if !Dialogic.has_current_dialog_node():
+			if canShoot == true:
+				#Activates the bullets
+				shootBull()
 		
 	if Input.is_action_just_pressed("skill"):
 		if canActivate == true:
@@ -79,13 +79,13 @@ func movement_input():
 	#Animation handler
 	if velocity.x > 0:
 		anim.animation = "right"
-		shadow.animation = "left"
+
 	elif velocity.x < 0:
 		anim.animation = "left"
-		shadow.animation = "right"
+
 	elif velocity.x == 0:
 		anim.animation = "default"
-		shadow.animation = "default"
+
 		
 	#Sets velocity
 	velocity = velocity.normalized() * speed
