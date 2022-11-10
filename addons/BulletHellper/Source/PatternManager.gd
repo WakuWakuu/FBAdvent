@@ -76,3 +76,9 @@ func _get_min_target_graze_sqrd_dist(radius : float)->float:
 
 func _get_min_target_sqrd_dist(radius : float)->float:
 	return pow(radius+target_radius, 2)
+
+func bossClearCheck(node):
+	if extra_colliders.has(node):
+		return true
+	else:
+		return false

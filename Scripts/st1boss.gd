@@ -17,6 +17,7 @@ onready var add4_1 = load("res://Scenes/patterns/add6.tscn")
 onready var add4_2 = load("res://Scenes/patterns/add8.tscn")
 onready var boss = $OwlGirl
 onready var bossHealth = $OwlGirl/Health
+onready var clear = $OwlGirl/bulletPhaseClear
 
 onready var bossref = weakref(boss)
 onready var bossPos = $OwlGirl/Position2D
@@ -50,6 +51,7 @@ var phase5Start = false
 
 var defeated = false
 
+
 func _ready():
 	thread = Thread.new()
 	phase1thread = Thread.new()
@@ -77,6 +79,7 @@ func started():
 func _process(delta):
 	healthBar.value = boss.giveHealth()
 	healthBar.max_value = bossHealth.wait_time
+	print(BHPatternManager.bossClearCheck(clear))
 
 
 
@@ -122,11 +125,13 @@ func _on_Shoot_timeout():
 		att1.global_position = boss.global_position
 		#att2.global_position = owl1.global_position
 
-		att1.get_node("Aim").set_aim_target(player)
+		att1.get_node("Aim").set_aim_target(player)			
 		att1.enable()
 		canSpin = true
 		spin(att1, 10.0)
-		#att2.enable()
+		while BHPatternManager.bossClearCheck(clear) == false:
+			yield(get_tree().create_timer(0.1), "timeout")
+		att1.disable()
 
 	bullStart.start()
 
@@ -148,6 +153,10 @@ func _on_OwlGirl_phase1End():
 		att2.set_aim_target(player)
 		att2_1.enable()
 		att2.enable()
+		while BHPatternManager.bossClearCheck(clear) == false:
+			yield(get_tree().create_timer(0.1), "timeout")
+		att2_1.disable()
+		att2.disable()
 		
 
 func _on_OwlGirl_phase2End():
@@ -159,8 +168,12 @@ func _on_OwlGirl_phase2End():
 		boss.add_child(att3)
 		att3.global_position = boss.global_position
 		att3.set_aim_target(player)
+		while BHPatternManager.bossClearCheck(clear) == true:
+			yield(get_tree().create_timer(0.1), "timeout")
 		att3.enable()
-
+		while BHPatternManager.bossClearCheck(clear) == false:
+			yield(get_tree().create_timer(0.1), "timeout")
+		att3.disable()
 
 func _on_OwlGirl_phase3End():
 	if bossref.get_ref():
@@ -173,8 +186,13 @@ func _on_OwlGirl_phase3End():
 		boss.add_child(att4)
 		att4.global_position = boss.global_position
 
-		att4.set_aim_target(player)
+		att4.set_aim_target(player)	
+		while BHPatternManager.bossClearCheck(clear) == true:
+			yield(get_tree().create_timer(0.1), "timeout")
 		att4.enable()
+		while BHPatternManager.bossClearCheck(clear) == false:
+			yield(get_tree().create_timer(0.1), "timeout")
+		att4.disable()
 
 
 func _on_OwlGirl_phase4End():
@@ -183,8 +201,14 @@ func _on_OwlGirl_phase4End():
 		boss.add_child(att4_1)
 		att4_1.global_position = boss.global_position
 		att4_1.set_aim_target(player)
+		while BHPatternManager.bossClearCheck(clear) == true:
+			yield(get_tree().create_timer(0.1), "timeout")
 		att4.enable()
 		att4_1.enable()
+		while BHPatternManager.bossClearCheck(clear) == false:
+			yield(get_tree().create_timer(0.1), "timeout")
+		att4.disable()
+		att4_1.disable()
 
 
 func _on_OwlGirl_phase5End():
@@ -194,9 +218,16 @@ func _on_OwlGirl_phase5End():
 		boss.add_child(att4_2)
 		att4_2.global_position = boss.global_position
 		att4_2.set_aim_target(player)
+		while BHPatternManager.bossClearCheck(clear) == true:
+			yield(get_tree().create_timer(0.1), "timeout")
 		att4.enable()
 		att4_1.enable()
 		att4_2.enable()
+		while BHPatternManager.bossClearCheck(clear) == false:
+			yield(get_tree().create_timer(0.1), "timeout")
+		att4.disable()
+		att4_1.disable()
+		att4_2.disable()
 
 func _on_OwlGirl_fightEnd():
 	anim.playback_default_blend_time = 0.8

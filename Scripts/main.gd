@@ -5,7 +5,7 @@ var appleNumber = 0
 var life = 3
 var power = 0
 var frozen = false
-
+var stage = 1
 
 signal appleCollected
 signal powerCollected
@@ -33,9 +33,9 @@ func _ready():
 
 func _process(delta):
 	
-	appleCheck(); meleeCheck(); powerCheck(); skillCheck()
+	appleCheck(); meleeCheck(); powerCheck(); skillCheck() #; vibeCheck()
 	BHPatternManager.deregister_other_collider(bulletClearArea)
-				
+
 	
 	
 	if appleNumber < 0:
@@ -91,6 +91,7 @@ func powerCheck():
 func skillCheck():
 	var skill = player.getCurrentSkill()
 	skillDisplay.text = skill
+	
 
 func _on_player_death():
 	
@@ -142,5 +143,8 @@ func appleClear():
 
 
 func stageChange():
+	stage += 1
 	var loading = loadingScreen.instance()
 	get_node("GUI/Control/Loading").add_child(loading)
+	if stage == 2:
+		pass
