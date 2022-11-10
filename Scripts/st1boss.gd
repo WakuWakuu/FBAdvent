@@ -38,33 +38,13 @@ var canSpin = false
 var spinDirec = 0.0
 
 var thread
-var phase1thread
-var phase2thread
-var phase3thread
-var phase4thread
-var phase5thread
-var phase1Start = false
-var phase2Start = false
-var phase3Start = false
-var phase4Start = false
-var phase5Start = false
 
 var defeated = false
 
 
 func _ready():
-	thread = Thread.new()
-	phase1thread = Thread.new()
-	phase2thread = Thread.new()
-	phase3thread = Thread.new()
-	#phase4thread = Thread.new()
-	phase5thread = Thread.new()
-	thread.start(self,"start")
-	phase1thread.start(self, "phase1")
-	phase2thread.start(self, "phase2")
-	phase3thread.start(self, "phase3")
-	#phase4thread.start(self, "phase4")
-	phase5thread.start(self, "phase5")
+	start()
+
 	
 
 func start():
@@ -79,7 +59,6 @@ func started():
 func _process(delta):
 	healthBar.value = boss.giveHealth()
 	healthBar.max_value = bossHealth.wait_time
-	print(BHPatternManager.bossClearCheck(clear))
 
 
 
