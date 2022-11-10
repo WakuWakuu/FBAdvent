@@ -97,7 +97,6 @@ texture = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 2
 playing = true
 
 [node name="hitbox" type="Area2D" parent="."]
@@ -127,7 +126,7 @@ volume_db = 4.0
 wait_time = 2.0
 one_shot = true
 
-[node name="bulletPhaseClear" type="StaticBody2D" parent="."]
+[node name="bulletPhaseClear" type="StaticBody2D" parent="." groups=["bossClear"]]
 visible = false
 collision_layer = 2
 collision_mask = 2

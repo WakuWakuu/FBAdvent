@@ -1,0 +1,228 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Theme/fonts/NotoSerifJP-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Theme/bob.gdshader" type="Shader" id=3]
+[ext_resource path="res://Scenes/Loading.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "NewAnim"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ColorRect:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("ColorRect:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("ColorRect:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("ColorRect:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Text:modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Text:modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Text:modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Text:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("sub:modulate:r")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("sub:modulate:g")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("sub:modulate:b")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("sub:modulate:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "pulse"
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("../sub:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("../sub:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("../sub:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("../sub:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.9 )
+}
+
+[node name="Loading" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1448.0
+margin_bottom = 856.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="fadeIn" type="AnimationPlayer" parent="ColorRect"]
+root_node = NodePath("../..")
+anims/NewAnim = SubResource( 1 )
+
+[node name="Text" type="RichTextLabel" parent="."]
+modulate = Color( 1, 0.356863, 0.356863, 1 )
+material = SubResource( 3 )
+margin_left = 1000.0
+margin_top = 656.0
+margin_right = 1336.0
+margin_bottom = 752.0
+custom_fonts/normal_font = SubResource( 7 )
+text = "Loading..."
+scroll_active = false
+
+[node name="sub" type="RichTextLabel" parent="."]
+material = SubResource( 6 )
+margin_left = 1096.0
+margin_top = 760.0
+margin_right = 1408.0
+margin_bottom = 816.0
+custom_fonts/normal_font = SubResource( 5 )
+text = "Please wait a moment"
+scroll_active = false
+
+[node name="pulse" type="AnimationPlayer" parent="sub"]
+root_node = NodePath("../../Text")
+playback_speed = 0.4
+anims/pulse = SubResource( 4 )
+
+[connection signal="animation_finished" from="ColorRect/fadeIn" to="." method="_on_fadeIn_animation_finished"]

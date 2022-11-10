@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/misc/tilesheet.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/powerup.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 13.66
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 0.956863, 0.964706, 0.894118, 1 )
+hue_variation = 0.09
+hue_variation_random = 0.66
+
+[node name="powerUp" type="Area2D" groups=["Powerup"]]
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+
+[node name="Fall" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Kill" type="Timer" parent="."]
+wait_time = 8.0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.305882 )
+preprocess = 1.0
+process_material = SubResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_powerUp_area_entered"]
+[connection signal="timeout" from="Fall" to="." method="_on_Fall_timeout"]
+[connection signal="timeout" from="Kill" to="." method="_on_Kill_timeout"]

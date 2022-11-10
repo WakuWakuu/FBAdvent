@@ -5,14 +5,19 @@ var appleNumber = 0
 var life = 3
 var power = 0
 var frozen = false
-
+var stage = 1
 
 signal appleCollected
+signal powerCollected
+signal powerSkillActivate
+
+onready var loadingScreen = load("res://Scenes/Loading.tscn")
 
 onready var player = get_node("chars/player")
 onready var appleGroup = get_tree().get_nodes_in_group("Apple")
 
 onready var appleCounter = get_node("GUI/Control/In-game/Score/AppCounter")
+onready var skillDisplay = get_node("GUI/Control/In-game/Score/SkillName")
 onready var life1 = get_node("GUI/Control/In-game/Score/Lives/CanvasLayer/life1")
 onready var life2 = get_node("GUI/Control/In-game/Score/Lives/CanvasLayer/life2")
 onready var life3 = get_node("GUI/Control/In-game/Score/Lives/CanvasLayer/life3")
@@ -28,9 +33,9 @@ func _ready():
 
 func _process(delta):
 	
-	appleCheck(); meleeCheck()
+	appleCheck(); meleeCheck(); powerCheck(); skillCheck() #; vibeCheck()
 	BHPatternManager.deregister_other_collider(bulletClearArea)
-				
+
 	
 	
 	if appleNumber < 0:
@@ -57,6 +62,11 @@ func powerGauge():
 	$Music/SFX/powerLevelUp.play()
 	print(power)
 
+func powerSkill():
+	emit_signal("powerSkillActivate")
+	print("collected")
+	$Music/SFX/skillCollect.play()
+
 func meleeCheck():
 	if get_tree().get_nodes_in_group("Owl").empty() != true:
 			for i in get_tree().get_nodes_in_group("Owl").size():
@@ -70,6 +80,18 @@ func appleCheck():
 			var apples = get_tree().get_nodes_in_group("Apple")
 			if not apples[i].is_connected("appleCollected", self, "appleCount"):
 				apples[i].connect("appleCollected", self, "appleCount")
+
+func powerCheck():
+	if get_tree().get_nodes_in_group("Powerup").empty() != true:
+		for i in get_tree().get_nodes_in_group("Powerup").size():
+			var power = get_tree().get_nodes_in_group("Powerup")
+			if not power[i].is_connected("powerCollected", self, "powerSkill"):
+				power[i].connect("powerCollected", self, "powerSkill")		
+
+func skillCheck():
+	var skill = player.getCurrentSkill()
+	skillDisplay.text = skill
+	
 
 func _on_player_death():
 	
@@ -118,3 +140,11 @@ func appleClear():
 			appleGroup[i].connect("_on_Apple_area_entered", self, "appleClear")
 			emit_signal("_on_Apple_area_entered")
 		
+
+
+func stageChange():
+	stage += 1
+	var loading = loadingScreen.instance()
+	get_node("GUI/Control/Loading").add_child(loading)
+	if stage == 2:
+		pass

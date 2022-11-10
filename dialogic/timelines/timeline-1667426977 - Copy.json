@@ -1,0 +1,180 @@
+{
+	"events": [
+		{
+			"animation": "2-fade_in_up.gd",
+			"animation_length": 1,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 1
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I've been so focused on getting all my apples [speed=10][speed=3]that I didn't stop to look at the scenery. [speed=50][speed=3]It's quite beautiful outside today!"
+		},
+		{
+			"animation": "slide_in_right.gd",
+			"animation_length": 1,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[speed=4]..Aand just as I say that, [speed=15][speed=3]it starts getting cloudy. [speed=50][speed=3]This day can't keep getting worse!\nHey you, [speed=50][speed=2]are you the one who organized all of this?!"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[speed=4]Hm~?"
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You're the one who ordered those owls to steal my apples!"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well, [speed=10][speed=3]aren't you a smart little bat. [speed=50][speed=3]Shall I give you an award for finding out the culprit behind this?"
+		},
+		{
+			"animation": "shake_y.gd",
+			"animation_length": 1,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Quit mocking me! [speed=50][speed=3]I was just about to have a picnic before you got those owls to steal all my apples! [speed=50][speed=2]Who are you even?!"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You don't remember me~? [speed=50][speed=3]That's a shame."
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Like I'd remember someone like you!"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I'll have you know that I am not the weakling you think I am.. [speed=50][speed=3]I don't think you'll want to cross someone like me!"
+		},
+		{
+			"animation": "shake_x.gd",
+			"animation_length": 1,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I don't care how strong you are, [speed=15][speed=3]I will make sure I get my apples back!"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ooh, [speed=20][speed=3]how determined! ♪"
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Come at me with all you got!"
+		},
+		{
+			"character": "character-1667425299.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh, [speed=15][speed=3]you don't know what you're in for! [speed=50][speed=3]Hehe~"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.5
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1667426977 - Copy.json",
+		"name": "OG-encounter2"
+	}
+}

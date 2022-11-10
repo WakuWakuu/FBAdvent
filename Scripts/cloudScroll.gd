@@ -10,8 +10,12 @@ var canSpawn = true
 
 var cloudSpawned
 
+var thread
+
 func _ready():
-	spawnCloud()
+	thread = Thread.new()
+	thread.start(self, "spawnCloud")
+	#spawnCloud()
 
 func spawnCloud():
 	
