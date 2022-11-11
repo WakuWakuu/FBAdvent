@@ -14,15 +14,26 @@ offsets = PoolRealArray( 0, 0.2 )
 colors = PoolColorArray( 0.121569, 0.145098, 0.239216, 1, 0.494118, 0.533333, 0.690196, 1 )
 
 [node name="BulletPattern" type="Node2D"]
-position = Vector2( 354, 172 )
+position = Vector2( 697, 287 )
 script = ExtResource( 3 )
 bullet_scene = ExtResource( 4 )
 bullet_cooldown = 0.5
+initial_wait_time = 0.0
 bullet_num = 20
+cooldown_between_bullets = 0.0
+aiming_bullet = false
 shot_type = 1
 spread = 360.0
+use_static_direction = false
 direction = Vector2( -0.777146, 0.62932 )
-rotating_speed = 0.0
+position_offset = 0.0
+perpendicular_offset = 0.0
+is_rotating = true
+rotating_speed = 80.0
+randomize_position = 0.0
+randomize_direction = 0.0
+randomize_parallel = 0.0
+randomize_perpendicular = 0.0
 shell_settings = {
 "acceleration": 30.0,
 "aim_individual_bullet": false,
@@ -47,12 +58,26 @@ one_shot = true
 [node name="BetweenShotTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="BulletPattern" parent="." instance=ExtResource( 1 )]
+[node name="BulletPattern" type="Node2D" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 bullet_scene = ExtResource( 2 )
+bullet_cooldown = 0.5
+initial_wait_time = 0.0
 bullet_num = 10
+cooldown_between_bullets = 0.0
+aiming_bullet = false
+shot_type = 1
 spread = 360.0
+use_static_direction = false
 direction = Vector2( -4.37114e-08, 1 )
+position_offset = 0.0
+perpendicular_offset = 0.0
+is_rotating = false
 rotating_speed = 0.0
+randomize_position = 0.0
+randomize_direction = 0.0
+randomize_parallel = 0.0
+randomize_perpendicular = 0.0
 shell_settings = {
 "acceleration": 30.0,
 "aim_individual_bullet": false,

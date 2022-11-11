@@ -1,0 +1,148 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://addons/BulletHellper/BasicBullets/SimpleBullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/BulletHellper/Source/BulletPattern.gd" type="Script" id=2]
+[ext_resource path="res://addons/BulletHellper/BasicBullets/NodeBullet.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/sound.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/sfx/something.ogg" type="AudioStream" id=5]
+[ext_resource path="res://addons/BulletHellper/BasicBullets/SimpleBullet.png" type="Texture" id=6]
+[ext_resource path="res://addons/BulletHellper/Source/BulletPattern.tscn" type="PackedScene" id=7]
+
+[sub_resource type="PackedScene" id=1]
+_bundled = {
+"conn_count": 0,
+"conns": PoolIntArray(  ),
+"editable_instances": [  ],
+"names": PoolStringArray( "Bullet", "Node2D", "Bullet", "light_mask", "script", "Sprite", "Sprite", "light_mask", "texture", "AudioStreamPlayer", "AudioStreamPlayer", "stream", "volume_db", "script" ),
+"node_count": 3,
+"node_paths": [ NodePath("."), NodePath(".") ],
+"nodes": PoolIntArray( -1, -1, 1, 0, -1, 2, 3, 0, 4, 1, 1, 2, 1073741824, 0, 6, 5, -1, 2, 7, 2, 8, 3, 0, 1073741825, 0, 10, 9, -1, 3, 11, 4, 12, 5, 13, 6, 0 ),
+"variants": [ 0, ExtResource( 3 ), 0, ExtResource( 6 ), ExtResource( 5 ), -2.0, ExtResource( 4 ) ],
+"version": 2
+}
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="PackedScene" id=3]
+_bundled = {
+"conn_count": 0,
+"conns": PoolIntArray(  ),
+"editable_instances": [  ],
+"names": PoolStringArray( "Bullet", "Node2D", "Bullet", "light_mask", "script", "Sprite", "Sprite", "light_mask", "texture", "AudioStreamPlayer", "AudioStreamPlayer", "stream", "volume_db", "script" ),
+"node_count": 3,
+"node_paths": [ NodePath("."), NodePath(".") ],
+"nodes": PoolIntArray( -1, -1, 1, 0, -1, 2, 3, 0, 4, 1, 1, 2, 1073741824, 0, 6, 5, -1, 2, 7, 2, 8, 3, 0, 1073741825, 0, 10, 9, -1, 3, 11, 4, 12, 5, 13, 6, 0 ),
+"variants": [ 0, ExtResource( 3 ), 0, ExtResource( 6 ), ExtResource( 5 ), -2.0, ExtResource( 4 ) ],
+"version": 2
+}
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[node name="BulletPattern" type="Node2D"]
+position = Vector2( 542, 210 )
+script = ExtResource( 2 )
+bullet_scene = ExtResource( 1 )
+bullet_cooldown = 0.2
+initial_wait_time = 0.0
+bullet_num = 5
+cooldown_between_bullets = 0.0
+aiming_bullet = false
+shot_type = 1
+spread = 50.0
+use_static_direction = false
+direction = Vector2( 0, 1 )
+position_offset = 0.0
+perpendicular_offset = 0.0
+is_rotating = true
+rotating_speed = 15.0
+randomize_position = 0.0
+randomize_direction = 0.0
+randomize_parallel = 0.0
+randomize_perpendicular = 0.0
+shell_settings = {
+"aim_individual_bullet": false,
+"color": Color( 0.964706, 0.415686, 0.415686, 1 ),
+"lifetime": 10.0,
+"speed": 200.0
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="InShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="InitialWaitTimer" type="Timer" parent="."]
+
+[node name="BetweenShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BulletPattern" type="Node2D" parent="." instance=ExtResource( 7 )]
+script = ExtResource( 2 )
+bullet_scene = SubResource( 1 )
+bullet_cooldown = 0.1
+initial_wait_time = 0.0
+bullet_num = 5
+cooldown_between_bullets = 0.0
+aiming_bullet = false
+shot_type = 1
+spread = 50.0
+use_static_direction = false
+direction = Vector2( 0, 1 )
+position_offset = 0.0
+perpendicular_offset = 0.0
+is_rotating = true
+rotating_speed = 15.0
+randomize_position = 0.0
+randomize_direction = 0.0
+randomize_parallel = 0.0
+randomize_perpendicular = 0.0
+shell_settings = {
+"acceleration": 0.0,
+"aim_individual_bullet": false,
+"angular_speed": 0.0,
+"color": Color( 0.964706, 0.8, 0.415686, 1 ),
+"gradient": SubResource( 2 ),
+"lifetime": 10.0,
+"max_angular_stray": 0.0,
+"max_speed": 0.0,
+"oob_check_time": 0.0,
+"speed": 180.0,
+"use_gradient": false
+}
+
+[node name="BulletPattern2" type="Node2D" parent="." instance=ExtResource( 7 )]
+script = ExtResource( 2 )
+bullet_scene = SubResource( 3 )
+bullet_cooldown = 0.3
+initial_wait_time = 0.0
+bullet_num = 5
+cooldown_between_bullets = 0.0
+aiming_bullet = false
+shot_type = 1
+spread = 100.0
+use_static_direction = false
+direction = Vector2( 0, 1 )
+position_offset = 0.0
+perpendicular_offset = 0.0
+is_rotating = true
+rotating_speed = 30.0
+randomize_position = 0.0
+randomize_direction = 0.0
+randomize_parallel = 0.0
+randomize_perpendicular = 0.0
+shell_settings = {
+"acceleration": 0.0,
+"aim_individual_bullet": false,
+"angular_speed": 0.0,
+"color": Color( 0.729412, 0.964706, 0.415686, 1 ),
+"gradient": SubResource( 4 ),
+"lifetime": 10.0,
+"max_angular_stray": 0.0,
+"max_speed": 0.0,
+"oob_check_time": 0.0,
+"speed": 160.0,
+"use_gradient": false
+}

@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/BulletHellper/Source/BulletPattern.gd" type="Script" id=1]
+[ext_resource path="res://addons/BulletHellper/Source/BulletPattern.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/BulletHellper/BasicBullets/SmallBullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/BulletHellper/BasicBullets/BigBullet.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.3 )
+colors = PoolColorArray( 0.933333, 0.596078, 0.929412, 1, 0.0823529, 0.462745, 0.168627, 1 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.3 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.0901961, 0.439216, 0.137255, 1 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.3 )
+colors = PoolColorArray( 0.752941, 0.898039, 0.956863, 1, 0.109804, 0.137255, 0.419608, 1 )
+
+[node name="BulletPattern" type="Node2D"]
+position = Vector2( 542, 210 )
+script = ExtResource( 1 )
+bullet_scene = ExtResource( 3 )
+bullet_cooldown = 0.2
+bullet_num = 5
+shot_type = 1
+spread = 360.0
+direction = Vector2( 0, 1 )
+is_rotating = true
+rotating_speed = 10.0
+shell_settings = {
+"aim_individual_bullet": false,
+"color": Color( 0.929412, 0.490196, 0.933333, 1 ),
+"gradient": SubResource( 1 ),
+"lifetime": 10.0,
+"oob_check_time": 5.0,
+"speed": 120.0,
+"use_gradient": true
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="InShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="InitialWaitTimer" type="Timer" parent="."]
+
+[node name="BetweenShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BulletPattern" parent="." instance=ExtResource( 2 )]
+bullet_scene = ExtResource( 3 )
+bullet_cooldown = 0.2
+spread = 360.0
+is_rotating = true
+rotating_speed = -10.0
+shell_settings = {
+"acceleration": 0.0,
+"aim_individual_bullet": false,
+"angular_speed": 0.0,
+"color": Color( 0.0745098, 0.498039, 0.14902, 1 ),
+"gradient": SubResource( 2 ),
+"lifetime": 10.0,
+"max_angular_stray": 0.0,
+"max_speed": 0.0,
+"oob_check_time": 5.0,
+"speed": 120.0,
+"use_gradient": true
+}
+
+[node name="BulletPattern2" parent="." instance=ExtResource( 2 )]
+bullet_scene = ExtResource( 4 )
+bullet_cooldown = 8.0
+bullet_num = 15
+aiming_bullet = true
+shot_type = 0
+spread = 1500.0
+position_offset = -300.0
+shell_settings = {
+"color": Color( 0.309804, 0.301961, 0.921569, 1 ),
+"lifetime": 10.0,
+"oob_check_time": 10.0,
+"speed": 150.0
+}
+
+[node name="BulletPattern3" parent="." instance=ExtResource( 2 )]
+bullet_scene = ExtResource( 3 )
+bullet_cooldown = 0.1
+bullet_num = 7
+spread = 360.0
+randomize_direction = 360.0
+shell_settings = {
+"color": Color( 0.956863, 0.6, 0.952941, 1 ),
+"gradient": SubResource( 3 ),
+"lifetime": 10.0,
+"oob_check_time": 5.0,
+"speed": 200.0,
+"use_gradient": true
+}

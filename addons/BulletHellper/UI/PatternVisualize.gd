@@ -8,8 +8,8 @@ var UIManager
 
 
 func _ready():
-	BHPatternManager.register_bullet_container(get_parent().get_parent())
-	#BHPatternManager.register_bullet_container($BulletContainer)
+	#BHPatternManager.register_bullet_container(get_parent().get_parent())
+	BHPatternManager.register_bullet_container($BulletContainer)
 	pattern = $BulletPattern
 	UIManager = $UI
 

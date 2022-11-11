@@ -1,14 +1,16 @@
 extends Control
 
 
-onready var startButton = $VBoxContainer/Start
+onready var startButton = $Main/Main/Start
+onready var optionsButton = $Main/Main/Options
+onready var creditsButton = $Main/Main/Credits
+onready var quitButton = $Main/Main/Quit
 onready var selectSFX = $select
 onready var selectSFXPressed = $select2
 onready var credits = load("res://Scenes/CreditsMenu.tscn")
 
 func _ready():
 	startButton.grab_focus()
-
 
 
 func _on_Start_pressed():
@@ -23,7 +25,9 @@ func _on_Options_pressed():
 func _on_Credits_pressed():	
 	selectSFXPressed.play()
 	var creditsMenu = credits.instance()
-	get_tree().current_scene.add_child(creditsMenu)
+	add_child(creditsMenu)
+	$Main.visible = false
+	
 
 
 func _on_Quit_pressed():
@@ -45,3 +49,7 @@ func _on_Credits_focus_entered():
 
 func _on_Quit_focus_entered():
 	selectSFX.play()
+
+func reappear():
+	$Main.visible = true
+	startButton.grab_focus()

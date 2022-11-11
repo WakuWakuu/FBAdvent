@@ -147,6 +147,7 @@ func appleClear():
 
 func stageChange():
 	stage += 1
+	print(stage)
 	#var loading = loadingScreen.instance()
 	#get_node("GUI/Control/Loading").add_child(loading)
 	if stage == 2:
