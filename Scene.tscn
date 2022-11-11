@@ -99,10 +99,6 @@ margin_right = 1728.0
 margin_bottom = 1128.0
 color = Color( 0, 0, 0, 0.572549 )
 
-[node name="MainMenu" type="Control" parent="GUI/Control"]
-margin_right = 40.0
-margin_bottom = 40.0
-
 [node name="In-game" type="Control" parent="GUI/Control"]
 use_parent_material = true
 margin_right = 40.0
@@ -256,7 +252,7 @@ margin_bottom = 80.0
 theme = ExtResource( 8 )
 theme_type_variation = "small"
 custom_fonts/normal_font = SubResource( 20 )
-text = "ver 0.5"
+text = "ver 0.6"
 scroll_active = false
 
 [node name="chars" type="CanvasLayer" parent="."]
@@ -281,54 +277,43 @@ zoom = Vector2( 0.6, 0.6 )
 [node name="Boundary" type="StaticBody2D" parent="." groups=["Boundary"]]
 
 [node name="Area2D" type="Area2D" parent="Boundary" groups=["Boundary"]]
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Area2D" groups=["Boundary"]]
 position = Vector2( 288, 424 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="Area2D2" type="Area2D" parent="Boundary" groups=["Boundary"]]
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary/Area2D2" groups=["Boundary"]]
 position = Vector2( 968, 400 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="Area2D3" type="Area2D" parent="Boundary" groups=["Boundary"]]
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundary/Area2D3" groups=["Boundary"]]
 position = Vector2( 679.11, 720.1 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 5 )
 
 [node name="Area2D4" type="Area2D" parent="Boundary" groups=["Boundary"]]
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundary/Area2D4" groups=["Boundary"]]
 position = Vector2( 727.048, 133.062 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" groups=["Boundary"]]
 position = Vector2( 288, 424 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary" groups=["Boundary"]]
 position = Vector2( 968, 400 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundary" groups=["Boundary"]]
 position = Vector2( 679.109, 704.449 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundary" groups=["Boundary"]]
 position = Vector2( 727.046, 140.89 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 5 )
 
 [node name="Music" type="Node" parent="."]
