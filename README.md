@@ -1,5 +1,5 @@
 # Fruit Bat Adventure
-Fruit Bat Adventure, a Touhou-inspired bullet hell shoot-em-up written in Godot. This project was made as part of a private hackathon/game jam.
+Fruit Bat Adventure, a Touhou-inspired bullet hell shoot-em-up written in Godot. This project was made as part of a private hackathon/game jam and is an ongoing project.
 
 Made with help of the GodotBulletHellper plugin, which can be found here: https://github.com/mavsm/GodotBulletHellper 
 
