@@ -325,7 +325,6 @@ volume_db = -2.0
 [node name="stage1" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 4 )
 volume_db = -2.0
-autoplay = true
 
 [node name="SFX" type="Node" parent="Music"]
 

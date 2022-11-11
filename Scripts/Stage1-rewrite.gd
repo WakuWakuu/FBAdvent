@@ -3,6 +3,7 @@ extends Node2D
 var canShoot = false
 var pattern : BulletHellperPattern
 onready var player = get_tree().get_nodes_in_group("player").front()
+onready var music = get_parent().get_parent().get_node("Music/stage1")
 onready var playerHitbox = player.get_children()
 
 #Enemy forms (Scenes with enemy attacks and paths)
@@ -13,6 +14,8 @@ onready var form4 = load("res://Scenes/enemy_patterns/st1form4.tscn")
 onready var boss = load("res://Scenes/enemy_patterns/st1boss.tscn")
 #onready var owlGirl = load("res://Scenes/owlGirl.tscn")
 
+onready var loadingScreenCanvas = get_parent().get_parent().get_node("GUI/Control/Loading")
+var loadingScreen 
 var form1Loop = 4
 var form2Loop = 5
 var form3Loop = 4
@@ -37,7 +40,9 @@ var form3_1List = []
 var form4List = []
 
 func _ready():	
-	stageStart()
+	
+	var loadingScreen = load("res://Scenes/Loading.tscn").instance()
+	loadingScreenCanvas.add_child(loadingScreen)
 	
 	#Instances all the enemy scenes at the start of the stage. Hopefully this results in less lag.
 	for i in form1Loop:		
@@ -64,9 +69,14 @@ func _ready():
 		var form4Instanced = form4.instance()
 		form4List.append(form4Instanced)
 		add_child(form4List[i])
-	
+		
+	yield(get_tree().create_timer(4), "timeout")
+	loadingScreen.queue_free()
+		
+	stageStart()
 
 func stageStart():
+	music.play()
 	$start1.start()
 
 
