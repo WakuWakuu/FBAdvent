@@ -36,6 +36,7 @@ onready var player = get_tree().get_nodes_in_group("player").front()
 var canShoot = false
 var canSpin = false
 var spinDirec = 0.0
+var canKill = false
 
 var thread
 
@@ -219,6 +220,8 @@ func _on_OwlGirl_fightEnd():
 	defeated = true
 	
 	
+	
+	
 #I can't get this function to work :(
 #I might need to go in and alter BulletHellper's code
 func spin(att, spinSpeed : float):
@@ -230,7 +233,19 @@ func spin(att, spinSpeed : float):
 
 func isDefeated():
 	if defeated:
-		return true
+		return true		
 	else:
 		return false
 
+#func flyOut():
+#	yield(get_tree().create_timer(1), "timeout")
+#	while Dialogic.has_current_dialog_node():
+#		pass
+#	anim.current_animation = "flyOut"
+#	canKill = true
+	
+
+
+#func _on_animations_animation_finished(anim_name):
+#	if canKill == true:
+#		queue_free()

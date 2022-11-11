@@ -13,6 +13,9 @@ signal powerSkillActivate
 
 onready var loadingScreen = load("res://Scenes/Loading.tscn")
 
+onready var stage1 = get_node("Stage/Stage1")
+onready var stage2Loaded = load("res://Stages/Stage2.tscn")
+
 onready var player = get_node("chars/player")
 onready var appleGroup = get_tree().get_nodes_in_group("Apple")
 
@@ -144,7 +147,12 @@ func appleClear():
 
 func stageChange():
 	stage += 1
-	var loading = loadingScreen.instance()
-	get_node("GUI/Control/Loading").add_child(loading)
+	#var loading = loadingScreen.instance()
+	#get_node("GUI/Control/Loading").add_child(loading)
 	if stage == 2:
-		pass
+		
+		
+		BHPatternManager.register_bullet_container(self)
+		stage1.queue_free()
+		var stage2 = stage2Loaded.instance()
+		get_node("Stage").add_child(stage2)

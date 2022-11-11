@@ -80,7 +80,7 @@ func _on_hitbox_area_entered(area):
 					phaseChange()
 					yield(get_tree().create_timer(1.5), "timeout")
 					emit_signal("fightEnd")
-					immunity = true
+					#immunity = true
 					
 					
 func phaseChange():
