@@ -117,6 +117,7 @@ func lifeCheck():
 
 	elif life == -1:
 		print("gameover")
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
 		
 		
 func _on_player_death():

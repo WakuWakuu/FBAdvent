@@ -15,7 +15,7 @@ func _ready():
 
 func _on_Start_pressed():
 	selectSFXPressed.play()
-	get_tree().change_scene("res://Scene.tscn")
+	get_tree().change_scene("res://Scenes/cutscene.tscn")
 
 
 func _on_Options_pressed():

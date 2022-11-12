@@ -24,6 +24,7 @@ rotating_speed = 0.0
 [node name="BulletContainer" type="Node2D" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource( 2 )
 
 [node name="SaveLoadArea" type="Control" parent="UI"]
