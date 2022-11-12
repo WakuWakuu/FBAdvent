@@ -24,7 +24,7 @@ signal changeStage
 
 var thread
 
-func _ready():	
+func ready():	
 	stageStart()
 	
 	

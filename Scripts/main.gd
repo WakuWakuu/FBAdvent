@@ -13,8 +13,10 @@ signal powerSkillActivate
 
 onready var loadingScreen = load("res://Scenes/Loading.tscn")
 
-onready var stage1 = get_node("Stage/Stage1")
+onready var stage1Loaded = load("res://Stages/Stage1.tscn")
+onready var stage1
 onready var stage2Loaded = load("res://Stages/Stage2.tscn")
+onready var stage2
 
 onready var player = get_node("chars/player")
 onready var appleGroup = get_tree().get_nodes_in_group("Apple")
@@ -30,6 +32,10 @@ onready var bulletClearArea = $BulletClear
 
 
 func _ready():
+	var stage1 = stage1Loaded.instance()
+	get_node("Stage").add_child(stage1)
+	stage1.connect("changeStage", self, "stageChange")
+	stage1.ready()
 	invert.visible = false
 	player.global_position = $Position2D.global_position
 	
@@ -76,6 +82,7 @@ func meleeCheck():
 				var owls = get_tree().get_nodes_in_group("Owl")
 				if not owls[i].is_connected("powerIncrease", self, "powerGauge"):
 					owls[i].connect("powerIncrease", self, "powerGauge")
+					owls[i].connect("addLife", self, "lifeIncrease")
 					
 func appleCheck():
 	if get_tree().get_nodes_in_group("Apple").empty() != true:
@@ -95,24 +102,7 @@ func skillCheck():
 	var skill = player.getCurrentSkill()
 	skillDisplay.text = skill
 	
-
-func _on_player_death():
-	
-	#power = 0 #Commented out for debug purposes
-	freeze(0.01, 3)
-	invert.visible = true
-	yield(get_tree().create_timer(0.01 * 3), "timeout")
-	
-	invert.visible = false
-	$Music/SFX/clearDeath.play()
-	$Music/SFX/respawn.play()
-	life -= 1
-	appleNumber -= 2
-	player.global_position = $Position2D.global_position	
-	BHPatternManager.register_other_collider(bulletClearArea)
-	
-	
-	
+func lifeCheck():
 	if life == 3:
 		life3.visible = true; life2.visible = true; life1.visible = true
 		
@@ -127,6 +117,26 @@ func _on_player_death():
 
 	elif life == -1:
 		print("gameover")
+		
+		
+func _on_player_death():
+	
+	#power = 0 #Commented out for debug purposes
+	freeze(0.01, 3)
+	invert.visible = true
+	yield(get_tree().create_timer(0.01 * 3), "timeout")
+	
+	invert.visible = false
+	$Music/SFX/clearDeath.play()
+	$Music/SFX/respawn.play()
+	life -= 1
+	appleNumber -= 2
+	player.global_position = $Position2D.global_position	
+	BHPatternManager.register_other_collider(bulletClearArea)
+	lifeCheck()
+	
+	
+	
 
 func freeze(timeScale, length):
 	frozen = true
@@ -143,7 +153,9 @@ func appleClear():
 			appleGroup[i].connect("_on_Apple_area_entered", self, "appleClear")
 			emit_signal("_on_Apple_area_entered")
 		
-
+func lifeIncrease():
+	life += 1
+	lifeCheck()
 
 func stageChange():
 	stage += 1
@@ -154,6 +166,9 @@ func stageChange():
 		
 		
 		BHPatternManager.register_bullet_container(self)
-		stage1.queue_free()
+		
+		get_node("Stage/Stage1").queue_free()
 		var stage2 = stage2Loaded.instance()
 		get_node("Stage").add_child(stage2)
+		stage2.ready()
+		stage2.connect("changeStage", self, "stageChange")

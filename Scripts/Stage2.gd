@@ -7,19 +7,19 @@ onready var music = get_parent().get_parent().get_node("Music/stage1")
 onready var playerHitbox = player.get_children()
 
 #Enemy forms (Scenes with enemy attacks and paths)
-onready var form1 = load("res://Scenes/enemy_patterns/st1form1.tscn")
-onready var form2 = load("res://Scenes/enemy_patterns/st1form2.tscn")
-onready var form3 = load("res://Scenes/enemy_patterns/st1form3.tscn")
-onready var form4 = load("res://Scenes/enemy_patterns/st1form4.tscn")
+onready var form1 = load("res://Scenes/enemy_patterns/st2form1.tscn")
+onready var form2 = load("res://Scenes/enemy_patterns/st2form2.tscn")
+onready var form3 = load("res://Scenes/enemy_patterns/st2form3.tscn")
+onready var form4 = load("res://Scenes/enemy_patterns/st1form2.tscn")
 onready var boss = load("res://Scenes/enemy_patterns/st1boss.tscn")
-#onready var owlGirl = load("res://Scenes/owlGirl.tscn")
+onready var owlGirl = load("res://Scenes/owlGirl.tscn")
 
 onready var loadingScreenCanvas = get_parent().get_parent().get_node("GUI/Control/Loading")
 var loadingScreen 
 var form1Loop = 4
-var form2Loop = 5
-var form3Loop = 4
-var form4Loop = 1
+var form2Loop = 2
+var form3Loop = 1
+var form4Loop = 2
 
 signal bossStart
 signal start
@@ -38,8 +38,9 @@ var form2List = []
 var form3List = []
 var form3_1List = []
 var form4List = []
+var form4_1List = []
 
-func _ready():	
+func ready():	
 	
 	var loadingScreen = load("res://Scenes/Loading.tscn").instance()
 	loadingScreenCanvas.add_child(loadingScreen)
@@ -60,10 +61,10 @@ func _ready():
 		form3List.append(form3Instanced)
 		add_child(form3List[i])
 	
-	for i in form3Loop:
+	for i in form4Loop:
 		var form2Instanced2 = form2.instance()
-		form3_1List.append(form2Instanced2)
-		add_child(form3_1List[i])
+		form4_1List.append(form2Instanced2)
+		add_child(form4_1List[i])
 		
 	for i in form4Loop:
 		var form4Instanced = form4.instance()
@@ -100,18 +101,18 @@ func _process(delta):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	for i in form2Loop:
 		form2List[i].ready()
-		yield(get_tree().create_timer(2), "timeout")
+		yield(get_tree().create_timer(5), "timeout")
 
 	yield(get_tree().create_timer(3), "timeout")
 
 	for i in form3Loop:
 		form3List[i].ready()
-		form3_1List[i].ready()
-		yield(get_tree().create_timer(4), "timeout")
+		#form3_1List[i].ready()
+		yield(get_tree().create_timer(15), "timeout")
 
 	for i in form4Loop:
-		form4List[i].ready()
-		yield(get_tree().create_timer(6), "timeout")
+		form4_1List[i].ready()
+		yield(get_tree().create_timer(3), "timeout")
 
 	$dialogueStart.start()
 	

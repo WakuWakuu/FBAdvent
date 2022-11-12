@@ -39,7 +39,7 @@ var form3List = []
 var form3_1List = []
 var form4List = []
 
-func _ready():	
+func ready():	
 	
 	var loadingScreen = load("res://Scenes/Loading.tscn").instance()
 	loadingScreenCanvas.add_child(loadingScreen)

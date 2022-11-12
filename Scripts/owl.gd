@@ -12,7 +12,7 @@ onready var immunityTimer = int($Immunity.wait_time)
 var health = 1
 
 signal powerIncrease
-
+signal addLife
 
 func ready():
 	
@@ -58,6 +58,9 @@ func _on_hitbox_area_entered(area):
 					$sfx.play()
 					dead = true
 					yield(get_tree().create_timer(0.1), "timeout")
+					if $Health.wait_time >= 15:
+						emit_signal("addLife")
+					
 					if melee == true:
 						print("in melee range")
 						emit_signal("powerIncrease")
