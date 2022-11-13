@@ -1,15 +1,15 @@
 {
 	"color": "#ffffffff",
 	"description": "",
-	"display_name": "",
+	"display_name": "Lemur girl",
 	"display_name_bool": true,
 	"id": "character-1667708766.json",
 	"mirror_portraits": false,
-	"name": "Oc",
+	"name": "Lemur girl",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": 0,
-	"offset_y": 0,
+	"offset_x": -175,
+	"offset_y": 80,
 	"portraits": [
 		{
 			"name": "Default",

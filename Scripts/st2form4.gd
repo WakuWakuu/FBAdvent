@@ -5,9 +5,10 @@ onready var anim = $AnimationPlayer
 onready var time = $Start
 onready var bullStart = $bull
 
-onready var add1 = load("res://Scenes/patterns/add4.tscn")
-onready var add2 = load("res://Scenes/patterns/add10.tscn")
-onready var add3 = load("res://Scenes/patterns/add7.tscn")
+onready var add1 = load("res://Scenes/patterns/add11.tscn")
+onready var add2 = load("res://Scenes/patterns/2add2.tscn")
+onready var add3 = load("res://Scenes/patterns/2add1.tscn")
+onready var add1Instanced = add1.instance()
 onready var add2Instanced = add2.instance()
 onready var add3Instanced = add3.instance()
 onready var owl1 = $Owl2
@@ -26,7 +27,7 @@ var canFire = true
 var patternLoop = 5
 
 # Called when the node enters the scene tree for the first time.
-func ready():
+func _ready():
 	if owl1ref.get_ref():
 		owl1.ready()
 		owl1Health.wait_time = 3
@@ -41,9 +42,11 @@ func _on_Start_timeout():
 	$Shoot.start()
 	
 	if owl2ref.get_ref():
+		
 		owl2.add_child(add2Instanced)
 		add2Instanced.global_position = owl2.global_position
 	if owl1ref.get_ref():
+		owl1.add_child(add1Instanced)
 		owl1.add_child(add3Instanced)
 		add3Instanced.global_position = owl1.global_position
 
@@ -59,9 +62,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	queue_free()
 
 #Disable
-func _on_bull_timeout(att1):
-	if owl1ref.get_ref():
-		att1.disable()
+func _on_bull_timeout():
+	if owl1ref.get_ref():	
+		add1Instanced.disable()
+	if owl2ref.get_ref():
+		yield(get_tree().create_timer(2), "timeout")
 		add2Instanced.disable()
 	
 
@@ -69,26 +74,16 @@ func _on_bull_timeout(att1):
 
 func _on_Shoot_timeout():
 	if owl2ref.get_ref():
+		
 		add2Instanced.enable()
 		add2Instanced.global_position = owl2.global_position
+		
 	if owl1ref.get_ref():
-		add3Instanced.enable()
-		add3Instanced.global_position = owl1.global_position
-		if canFire == true:
-			for i in patternLoop:
-				var att1 = add1.instance()
-				#var att2 = add2.instance()
-				owl1.add_child(att1)
-				
-				att1.global_position = owl1.global_position
-				#att2.global_position = owl1.global_position
-
-				att1.set_aim_target(player)
-				att1.shell_settings.speed += 50
-				att1.enable()
-				att1.disable()
-				canFire = false
-				#att2.enable()
+		
+		add1Instanced.enable()
+		#add3Instanced.global_position = owl1.global_position
+		add1Instanced.global_position = owl1.global_position
+		
 				
 			
 		

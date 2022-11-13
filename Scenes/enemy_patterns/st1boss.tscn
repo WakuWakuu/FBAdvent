@@ -163,6 +163,7 @@ anims/fadeIn = SubResource( 3 )
 
 [node name="animations" type="AnimationPlayer" parent="."]
 playback_default_blend_time = 1.5
+anims/enemy_patternsflyIn = ExtResource( 4 )
 anims/flyIn = ExtResource( 4 )
 anims/flyOut = SubResource( 8 )
 anims/phase1 = SubResource( 4 )
@@ -180,7 +181,7 @@ one_shot = true
 one_shot = true
 
 [node name="OwlGirl" parent="." instance=ExtResource( 1 )]
-position = Vector2( 585, 0 )
+position = Vector2( 649, 0 )
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = 4

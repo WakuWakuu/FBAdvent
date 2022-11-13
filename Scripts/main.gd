@@ -14,9 +14,9 @@ signal powerSkillActivate
 onready var loadingScreen = load("res://Scenes/Loading.tscn")
 
 onready var stage1Loaded = load("res://Stages/Stage1.tscn")
-onready var stage1
+var stage1
 onready var stage2Loaded = load("res://Stages/Stage2.tscn")
-onready var stage2
+var stage2
 
 onready var player = get_node("chars/player")
 onready var appleGroup = get_tree().get_nodes_in_group("Apple")
@@ -50,7 +50,7 @@ func _process(delta):
 	if appleNumber < 0:
 		appleNumber = 0
 		
-	if power == 100:
+	if power == 50:
 		power = 0
 		BHPatternManager.register_other_collider(bulletClearArea)
 		appleClear()
@@ -78,11 +78,11 @@ func powerSkill():
 
 func meleeCheck():
 	if get_tree().get_nodes_in_group("Owl").empty() != true:
-			for i in get_tree().get_nodes_in_group("Owl").size():
-				var owls = get_tree().get_nodes_in_group("Owl")
-				if not owls[i].is_connected("powerIncrease", self, "powerGauge"):
-					owls[i].connect("powerIncrease", self, "powerGauge")
-					owls[i].connect("addLife", self, "lifeIncrease")
+		for i in get_tree().get_nodes_in_group("Owl").size():
+			var owls = get_tree().get_nodes_in_group("Owl")
+			if not owls[i].is_connected("powerIncrease", self, "powerGauge"):
+				owls[i].connect("powerIncrease", self, "powerGauge")
+				owls[i].connect("addLife", self, "lifeIncrease")
 					
 func appleCheck():
 	if get_tree().get_nodes_in_group("Apple").empty() != true:
@@ -117,12 +117,13 @@ func lifeCheck():
 
 	elif life == -1:
 		print("gameover")
-		get_tree().change_scene("res://Scenes/GameOver.tscn")
+		#BHPatternManager.deregister_other_collider(bulletClearArea)
+		#get_tree().change_scene("res://Scenes/GameOver.tscn")
 		
 		
 func _on_player_death():
 	
-	#power = 0 #Commented out for debug purposes
+	power = 0 
 	freeze(0.01, 3)
 	invert.visible = true
 	yield(get_tree().create_timer(0.01 * 3), "timeout")
@@ -165,7 +166,6 @@ func stageChange():
 	#get_node("GUI/Control/Loading").add_child(loading)
 	if stage == 2:
 		
-		
 		BHPatternManager.register_bullet_container(self)
 		
 		get_node("Stage/Stage1").queue_free()
@@ -173,3 +173,6 @@ func stageChange():
 		get_node("Stage").add_child(stage2)
 		stage2.ready()
 		stage2.connect("changeStage", self, "stageChange")
+		
+	if stage == 3:
+		print("game done")

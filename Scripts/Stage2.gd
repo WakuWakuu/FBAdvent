@@ -10,16 +10,16 @@ onready var playerHitbox = player.get_children()
 onready var form1 = load("res://Scenes/enemy_patterns/st2form1.tscn")
 onready var form2 = load("res://Scenes/enemy_patterns/st2form2.tscn")
 onready var form3 = load("res://Scenes/enemy_patterns/st2form3.tscn")
-onready var form4 = load("res://Scenes/enemy_patterns/st1form2.tscn")
-onready var boss = load("res://Scenes/enemy_patterns/st1boss.tscn")
-onready var owlGirl = load("res://Scenes/owlGirl.tscn")
+onready var form4 = load("res://Scenes/enemy_patterns/st2form4.tscn")
+onready var boss = load("res://Scenes/enemy_patterns/st2boss.tscn")
+onready var owlGirl = load("res://Scenes/lemurGirl.tscn")
 
 onready var loadingScreenCanvas = get_parent().get_parent().get_node("GUI/Control/Loading")
 var loadingScreen 
 var form1Loop = 4
 var form2Loop = 2
 var form3Loop = 1
-var form4Loop = 2
+var form4Loop = 1
 
 signal bossStart
 signal start
@@ -111,7 +111,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		yield(get_tree().create_timer(15), "timeout")
 
 	for i in form4Loop:
-		form4_1List[i].ready()
+		form4List[i].ready()
 		yield(get_tree().create_timer(3), "timeout")
 
 	$dialogueStart.start()

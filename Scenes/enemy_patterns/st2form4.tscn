@@ -65,7 +65,7 @@ position = Vector2( 713, 160 )
 one_shot = true
 
 [node name="bull" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Shoot" type="Timer" parent="."]
