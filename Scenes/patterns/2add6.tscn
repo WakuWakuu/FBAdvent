@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/BulletHellper/Source/BulletPattern.gd" type="Script" id=1]
+[ext_resource path="res://addons/BulletHellper/BasicBullets/BigBullet.tscn" type="PackedScene" id=2]
+
+[node name="BulletPattern" type="Node2D"]
+position = Vector2( 542, 210 )
+script = ExtResource( 1 )
+bullet_scene = ExtResource( 2 )
+bullet_cooldown = 1.0
+cooldown_between_bullets = 0.1
+spread = 400.0
+direction = Vector2( -4.37114e-08, 1 )
+position_offset = -200.0
+rotating_speed = 0.0
+randomize_perpendicular = 300.0
+shell_settings = {
+"acceleration": 0.0,
+"aim_individual_bullet": true,
+"angular_speed": 0.0,
+"color": Color( 0.980392, 0.478431, 0.156863, 1 ),
+"lifetime": 10.0,
+"max_angular_stray": 0.0,
+"max_speed": 0.0,
+"oob_check_time": 20.0,
+"speed": 250.0
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="InShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="InitialWaitTimer" type="Timer" parent="."]
+
+[node name="BetweenShotTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

@@ -1,0 +1,145 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Sprites/chara/owgirl-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/lemurGirl.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/chara/hitbox.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/sfx/swoosh enemy.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Scripts/clear.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/misc/light.png" type="Texture" id=6]
+[ext_resource path="res://Theme/warp.gdshader" type="Shader" id=7]
+[ext_resource path="res://Sounds/sfx/charge.ogg" type="AudioStream" id=8]
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 7 )
+shader_param/X_movement = 60.0
+shader_param/Y_movement = 30.0
+shader_param/distort_effect = 0.05
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 7 )
+shader_param/X_movement = 80.0
+shader_param/Y_movement = 10.0
+shader_param/distort_effect = 0.03
+
+[sub_resource type="ParticlesMaterial" id=7]
+lifetime_randomness = 0.31
+emission_shape = 5
+emission_ring_radius = 4.0
+emission_ring_inner_radius = 1.0
+emission_ring_height = 1.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 43.96
+initial_velocity_random = 0.19
+orbit_velocity = 0.1
+orbit_velocity_random = 0.0
+color = Color( 0.372549, 0.392157, 0.596078, 1 )
+hue_variation = 0.04
+hue_variation_random = 0.56
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 96, 20 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 1406.16, 962.743 )
+
+[node name="Owl Girl" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Warp2" type="Sprite" parent="."]
+material = SubResource( 11 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 6 )
+
+[node name="Warp" type="Sprite" parent="."]
+material = SubResource( 10 )
+position = Vector2( -8, -8 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 6 )
+
+[node name="spellChange" type="Particles2D" parent="."]
+self_modulate = Color( 1, 1, 1, 0.47451 )
+emitting = false
+amount = 20
+lifetime = 2.0
+one_shot = true
+speed_scale = 3.5
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource( 7 )
+texture = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+frame = 1
+playing = true
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="hitbox" type="CollisionShape2D" parent="hitbox"]
+position = Vector2( 0, -12 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -12 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="Health" type="Timer" parent="."]
+wait_time = 80.0
+
+[node name="Immunity" type="Timer" parent="."]
+one_shot = true
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 4.0
+
+[node name="changeTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="bulletPhaseClear" type="StaticBody2D" parent="." groups=["bossClear"]]
+visible = false
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bulletPhaseClear"]
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 8 )
+
+[node name="charge" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 6.0
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="changeTimer" to="." method="_on_changeTimer_timeout"]
