@@ -17,12 +17,13 @@ position = Vector2( 350, 280 )
 script = ExtResource( 3 )
 bullet_scene = ExtResource( 2 )
 bullet_cooldown = 0.5
-bullet_num = 25
+bullet_num = 30
 shot_type = 1
 spread = 360.0
 direction = Vector2( -4.37114e-08, 1 )
 perpendicular_offset = 100.0
-rotating_speed = 0.0
+is_rotating = true
+rotating_speed = 20.0
 shell_settings = {
 "acceleration": -50.0,
 "aim_individual_bullet": false,
@@ -31,7 +32,7 @@ shell_settings = {
 "gradient": SubResource( 1 ),
 "lifetime": 30.0,
 "max_angular_stray": 110.0,
-"oob_check_time": 10.0,
+"oob_check_time": 8.0,
 "speed": 150.0,
 "use_gradient": false
 }

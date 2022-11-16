@@ -1,0 +1,101 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667708766.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I beat you! [speed=50][speed=3]So that means you gotta hand those apples over!"
+		},
+		{
+			"character": "character-1667708766.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Eeh? [speed=50][speed=3]Okay.."
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "There's so many apple cores here, [speed=15][speed=3]what the heck? [speed=50][speed=3]How many did you end up eating?!"
+		},
+		{
+			"character": "character-1667708766.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "About half of them."
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Y-you're kidding, [speed=15][speed=3]right?!"
+		},
+		{
+			"character": "character-1667708766.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Noope."
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You know what, [speed=15][speed=3]why don't we just have a picnic together? [speed=50][speed=3]At least you seem to like my apples, [speed=15][speed=3]unlike Owl girl!"
+		},
+		{
+			"character": "character-1667708766.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "A picnic? [speed=50][speed=3]Okay!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1668393699.json",
+		"name": "Le-defeated"
+	}
+}

@@ -1,0 +1,157 @@
+{
+	"events": [
+		{
+			"animation": "2-fade_in_up.gd",
+			"animation_length": 1,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "2-fade_in_up.gd",
+			"animation_length": 1,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667708766.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "shake_x.gd",
+			"animation_length": 1,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey you, [speed=15][speed=3]get over here! [speed=50][speed=3]Give me back my apples!"
+		},
+		{
+			"character": "character-1667708766.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ooh, [speed=15][speed=3]these are yours?"
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yes!"
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Wait, [speed=15][speed=3]are you seriously eating them?!"
+		},
+		{
+			"character": "character-1667708766.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeahh, [speed=15][speed=3]I guess so."
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You guess?!"
+		},
+		{
+			"character": "character-1667708766.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I was hungry, [speed=15][speed=3]so I decided to take the apples behind Owl girl. [speed=50][speed=3]I didn't know they were yours."
+		},
+		{
+			"animation": "shake_x.gd",
+			"animation_length": 1,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You didn't see us fighting for them back there?!"
+		},
+		{
+			"character": "character-1667708766.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Noope."
+		},
+		{
+			"character": "character-1667425259.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well, [speed=15][speed=3]whatever. [speed=50][speed=3]I will make sure you pay for eating them!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.5
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1668393047.json",
+		"name": "Le-encounter"
+	}
+}

@@ -11,7 +11,7 @@ extends Node2D
 """
 
 
-const BOUNDARY_RECT := Rect2(300, 100, 912,768)
+const BOUNDARY_RECT := Rect2(300, 100, 652,768)
 
 var bullet_container : Node
 var bullet_target : Node

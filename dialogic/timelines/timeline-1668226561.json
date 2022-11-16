@@ -1,0 +1,63 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1668226663.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1668226663.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Finally done with picking up all the apples. I should set up a picnic for myself!"
+		},
+		{
+			"character": "character-1668226663.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Wait, where did.."
+		},
+		{
+			"character": "character-1668226663.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "My apples!! Hey, get back over here you annoying owls!"
+		},
+		{
+			"character": "character-1668226663.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Where are they going?"
+		},
+		{
+			"character": "character-1668226663.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh well, it doesn't matter. I need to get my hard-earned apples back!"
+		},
+		{
+			"change_scene": "res://Scene.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1668226561.json",
+		"name": "start"
+	}
+}

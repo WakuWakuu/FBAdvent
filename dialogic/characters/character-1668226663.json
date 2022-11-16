@@ -1,0 +1,21 @@
+{
+	"color": "#ffffa2ea",
+	"description": "",
+	"display_name": "Fruit Bat girl",
+	"display_name_bool": true,
+	"id": "character-1668226663.json",
+	"mirror_portraits": false,
+	"name": "Fruit Bat girl (no portrait)",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": "default-theme.cfg"
+}

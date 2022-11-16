@@ -60,9 +60,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 #Disable
 func _on_bull_timeout(att1):
+	if owl2ref.get_ref():
+		add2Instanced.disable()
 	if owl1ref.get_ref():
 		att1.disable()
-		add2Instanced.disable()
+		add3Instanced.disable()
 	
 
 

@@ -12,7 +12,7 @@ onready var immunityTimer = int($Immunity.wait_time)
 var health = 1
 
 signal powerIncrease
-
+signal addLife
 
 func ready():
 	
@@ -30,44 +30,15 @@ func _on_hitbox_area_entered(area):
 			#Checks if the hitbox is a bullet
 			if area.name == "hitboxBull" and dead == false:
 				health -= 1
-				#print(int($Health.wait_time))
-				#print(health)
+				healthCheck()
 				
-				if health <= 0 and big == false:
-					#Spawns apple
-					var spawnApple = apple.instance()
-					get_parent().get_parent().add_child(spawnApple)
-					spawnApple.global_position = $Position2D.global_position
-					$sfx.play()
-					dead = true
-					yield(get_tree().create_timer(0.1), "timeout")
-					if melee == true:
-						print("in melee range")
-						emit_signal("powerIncrease")
-					else:
-						pass
-					#Kills the owl add
-					#queue_free()
-					call_deferred("free")
-					
-				if health <= 0 and big == true:
-					#Spawns apple
-					var spawnPower = power.instance()
-					get_parent().get_parent().add_child(spawnPower)
-					spawnPower.global_position = $Position2D.global_position
-					$sfx.play()
-					dead = true
-					yield(get_tree().create_timer(0.1), "timeout")
-					if melee == true:
-						print("in melee range")
-						emit_signal("powerIncrease")
-					else:
-						pass
-					#Kills the owl add
-					#queue_free()
-					call_deferred("free")
+			if area.name == "bigBull" and dead == false:
+				health -=3
+				healthCheck()
 				
-			#note to self, add powerup drop to enemies if their health is 
+				
+				
+		
 
 #Movements are controlled by AnimationPlayers, so there is no code here for that.
 #Attacks are controlled by the enemy form scripts.
@@ -83,3 +54,40 @@ func _on_meleeRange_area_exited(area):
 		melee = false
 
 
+func healthCheck():
+	if health <= 0 and big == false:
+		#Spawns apple
+		var spawnApple = apple.instance()
+		get_parent().get_parent().add_child(spawnApple)
+		spawnApple.global_position = $Position2D.global_position
+		$sfx.play()
+		dead = true
+		yield(get_tree().create_timer(0.1), "timeout")
+		if melee == true:
+			print("in melee range")
+			emit_signal("powerIncrease")
+		else:
+			pass
+		#Kills the owl add
+		#queue_free()
+		call_deferred("free")
+					
+	if health <= 0 and big == true:
+		#Spawns apple
+		var spawnPower = power.instance()
+		get_parent().get_parent().add_child(spawnPower)
+		spawnPower.global_position = $Position2D.global_position
+		$sfx.play()
+		dead = true
+		yield(get_tree().create_timer(0.1), "timeout")
+		if $Health.wait_time >= 15:
+			emit_signal("addLife")
+					
+		if melee == true:
+			print("in melee range")
+			emit_signal("powerIncrease")
+		else:
+			pass
+		#Kills the owl add
+		#queue_free()
+		call_deferred("free")

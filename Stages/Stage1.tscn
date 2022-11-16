@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Theme/fonts/LibreBaskerville-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Stage1-rewrite.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/misc/tilesheet.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/misc/houses.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/cloudScroll.gd" type="Script" id=7]
+[ext_resource path="res://Sprites/misc/houses2.png" type="Texture" id=8]
 
 [sub_resource type="TileSet" id=21]
 0/name = "houses.png 0"
@@ -37,6 +38,20 @@
 1/shape_one_way_margin = 0.0
 1/shapes = [  ]
 1/z_index = 0
+2/name = "houses2.png 2"
+2/texture = ExtResource( 8 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 32, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
 
 [sub_resource type="TileSet" id=6]
 0/name = "tilesheet.png 0"
@@ -238,7 +253,7 @@ collision_mask = 0
 navigation_layers = 0
 occluder_light_mask = 0
 format = 1
-tile_data = PoolIntArray( -131066, 0, 0, -131060, 0, 0, -65530, 0, 0, -65524, 0, 0, 6, 0, 0, 12, 0, 0, 65542, 0, 0, 65548, 0, 0, 131078, 0, 0, 131084, 0, 0, 196614, 0, 0, 196620, 0, 0, 262150, 0, 0, 262156, 0, 0, 327686, 0, 0, 327692, 0, 0, 393222, 0, 0, 393228, 0, 0, 458758, 0, 0, 458764, 0, 0, 524294, 0, 0, 524300, 0, 0, 589830, 0, 0, 589836, 0, 0, 655366, 0, 0, 655372, 0, 0 )
+tile_data = PoolIntArray( -131066, 2, 0, -131060, 2, 0, -65530, 2, 0, -65524, 2, 0, 6, 2, 0, 12, 2, 0, 65542, 2, 0, 65548, 2, 0, 131078, 2, 0, 131084, 2, 0, 196614, 2, 0, 196620, 2, 0, 262150, 2, 0, 262156, 2, 0, 327686, 2, 0, 327692, 2, 0, 393222, 2, 0, 393228, 2, 0, 458758, 2, 0, 458764, 2, 0, 524294, 2, 0, 524300, 2, 0, 589830, 2, 0, 589836, 2, 0, 655366, 2, 0, 655372, 2, 0 )
 
 [node name="tilemap" type="CanvasLayer" parent="."]
 follow_viewport_enable = true

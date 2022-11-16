@@ -34,3 +34,4 @@ func stopScrolling(delta):
 
 func _on_Stage1_bossStart():
 	bossStarted = true
+	print("aa")
