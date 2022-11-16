@@ -56,7 +56,7 @@ func _process(delta):
 	if appleNumber < 0:
 		appleNumber = 0
 		
-	if power == 50:
+	if power == 100:
 		power = 0
 		BHPatternManager.register_other_collider(bulletClearArea)
 		appleClear()
