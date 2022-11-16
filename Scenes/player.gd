@@ -183,7 +183,7 @@ func bigBullet():
 		var bullet = bigBulletScene.instance()
 		get_parent().add_child(bullet)
 		bullet.position.x = $Position2D.global_position.x
-		bullet.position.y = $Position2D.global_position.y - 30
+		bullet.position.y = $Position2D.global_position.y - 50
 		bigBullet = false
 	
 
