@@ -14,18 +14,23 @@ Sprites, animations, artwork, music, and sfx are all made by me.
 All the programming (with the exception of Godot and BulletHellper) was also done by me, using Godot's docs and forums as references.
 
 This is my first real project, so the code may be messy and inefficient. There are a lot of inconsistencies with variable usage, which should hopefully be fixed in the final release. Comments will be added later on. 
+
 Edit: Code will remain commentless, as there isn't enough time for me comment everything now.
 
 # The game
 Fruit bat girl is enjoying the lovely sunny day when she finds out that all her apples were stolen. Being hungry, she sets off to find her apples and comes across a horde of owls led by Owl girl. Help Fruit bat girl get all her apples back in this difficult bullet hell shoot-em-up! Currently there are two stages available, with the second one having unfinished music and sprites.
 
 
-Controls
+# Controls
 
 Shoot: Z
+
 Focus (slow down): Shift
+
 Move: Arrow keys
+
 Skill: X
+
 Debug mode (infinite lives): Spacebar
 
 Power can be obtained by killing enemies within the apple collection zone that appears when focusing. When the power gauge is filled, all bullets on the screen will be cleared.
