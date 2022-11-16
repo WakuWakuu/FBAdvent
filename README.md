@@ -1,5 +1,5 @@
 # Fruit Bat Adventure
-Fruit Bat Adventure, a Touhou-inspired bullet hell shoot-em-up written in Godot. This project was made as part of a private hackathon/game jam and is an ongoing project.
+Fruit Bat Adventure, a cute bullet hell shoot-em-up written in Godot. This project was made as part of a private hackathon/game jam.
 
 Made with help of the GodotBulletHellper plugin, which can be found here: https://github.com/mavsm/GodotBulletHellper 
 
@@ -35,3 +35,8 @@ Skill: X
 Debug mode (infinite lives): Spacebar
 
 Power can be obtained by killing enemies within the apple collection zone that appears when focusing. When the power gauge is filled, all bullets on the screen will be cleared.
+
+# Source code
+This game was coded with modularity in mind, and as such, this game utilizes Godot's scene system for many things in the game. Stages are contained within their own scenes, which are loaded into the main in-game scene. Stage enemies are organized into "enemy forms", which are scenes that contain movement and attack data. Movement is controlled using Godot's AnimationPlayer rather than the enemy form scripts. Enemies don't have much in their scripts, as it's the enemy form scripts that are controlling their attacks. The bosses work in a similar way, only now with phases implemented. Once a stage is done, the game deletes the current stage and replaces with the scene of the next stage. 
+
+All the bullet patterns here were created using BulletHellper's visual editor, with certain attacks like "The Grass Dance" being modified within the enemy form scripts, as the visual editor can only do so much.
