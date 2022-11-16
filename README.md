@@ -12,6 +12,7 @@ Godot engine can also be found here: https://github.com/godotengine/godot
 
 Sprites, animations, artwork, music, and sfx are all made by me.
 All the programming (with the exception of Godot and BulletHellper) was also done by me, using Godot's docs and forums as references.
+None of Dialogic's default GUI assets are used.
 
 This is my first real project, so the code may be messy and inefficient. There are a lot of inconsistencies with variable usage, which should hopefully be fixed in the final release. Comments will be added later on. 
 
