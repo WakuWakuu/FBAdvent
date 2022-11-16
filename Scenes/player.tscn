@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Sprites/chara/hitbox.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/player.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sounds/sfx/FB_death_pichuun.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Sprites/misc/tilesheet.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/misc/slash.png" type="Texture" id=12]
+[ext_resource path="res://Sounds/sfx/skillenable.ogg" type="AudioStream" id=13]
 
 [sub_resource type="ParticlesMaterial" id=12]
 emission_shape = 1
@@ -181,6 +182,9 @@ gravity = Vector2( 0, -40 )
 [node name="Duration" type="Timer" parent="Skills/machineGunSkill"]
 wait_time = 5.0
 one_shot = true
+
+[node name="skillenable" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
 
 [connection signal="timeout" from="invincibility" to="." method="_on_invincibility_timeout"]
 [connection signal="timeout" from="deathTimer" to="." method="_on_deathTimer_timeout"]

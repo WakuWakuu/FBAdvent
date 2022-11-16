@@ -110,7 +110,7 @@ layer = 4
 material = SubResource( 2 )
 margin_right = 1432.0
 margin_bottom = 856.0
-color = Color( 0.223529, 0, 0.376471, 0 )
+color = Color( 0, 0, 0, 0 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 10

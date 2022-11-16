@@ -6,6 +6,8 @@ var life = 3
 var power = 0
 var frozen = false
 var stage = 1
+var debug = false
+var paused = false
 
 signal appleCollected
 signal powerCollected
@@ -30,6 +32,7 @@ onready var powerBar = get_node("GUI/Control/In-game/Score/Power/power/TexturePr
 onready var invert = get_node("Invert")
 onready var bulletClearArea = $BulletClear
 
+onready var saveFile = "user://save.txt"
 
 func _ready():
 	var stage1 = stage1Loaded.instance()
@@ -38,11 +41,14 @@ func _ready():
 	stage1.ready()
 	invert.visible = false
 	player.global_position = $Position2D.global_position
+	saveApples()
+	#getDebugMode()
 	
 
 func _process(delta):
 	
 	appleCheck(); meleeCheck(); powerCheck(); skillCheck() #; vibeCheck()
+	inputCheck()
 	BHPatternManager.deregister_other_collider(bulletClearArea)
 
 	
@@ -117,8 +123,8 @@ func lifeCheck():
 
 	elif life == -1:
 		print("gameover")
-		#BHPatternManager.deregister_other_collider(bulletClearArea)
-		#get_tree().change_scene("res://Scenes/GameOver.tscn")
+		BHPatternManager.deregister_other_collider(bulletClearArea)
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
 		
 		
 func _on_player_death():
@@ -130,15 +136,17 @@ func _on_player_death():
 	
 	invert.visible = false
 	$Music/SFX/clearDeath.play()
-	$Music/SFX/respawn.play()
-	life -= 1
+	$Music/SFX/respawn.play()	
 	appleNumber -= 2
 	player.global_position = $Position2D.global_position	
 	BHPatternManager.register_other_collider(bulletClearArea)
-	lifeCheck()
+	if debug == false:
+		life -= 1
+		lifeCheck()		
+	else:
+		appleNumber -= 2
 	
-	
-	
+
 
 func freeze(timeScale, length):
 	frozen = true
@@ -176,3 +184,40 @@ func stageChange():
 		
 	if stage == 3:
 		print("game done")
+		saveApples()
+		get_tree().change_scene("res://Scenes/ending-cutscene.tscn")
+		
+func saveApples():
+	var save = File.new()
+	save.open(saveFile, File.WRITE)
+	save.store_var(appleNumber)
+	save.close()
+
+#func getDebugMode():
+#	var save = File.new()
+#	if save.file_exists(saveFile):
+#		save.open(saveFile, File.READ)
+#		debug = save.get_var()
+#
+#	save.close()
+	
+
+func inputCheck():
+	if Input.is_action_just_pressed("debug"):
+		if debug == true:
+			debug = false
+		else:
+			debug = true
+	
+	if Input.is_action_just_pressed("pause"):
+		if paused == false:
+			paused = true
+			print(paused)
+			$PausedGUI.ready()
+			$PausedGUI.visible = true
+			get_tree().paused = true
+		elif paused == true:
+			paused = false
+			print(paused)
+			$PausedGUI.visible = false
+			get_tree().paused = false

@@ -8,6 +8,7 @@ onready var quitButton = $Main/Main/Quit
 onready var selectSFX = $select
 onready var selectSFXPressed = $select2
 onready var credits = load("res://Scenes/CreditsMenu.tscn")
+onready var options = load("res://Scenes/options.tscn")
 
 func _ready():
 	startButton.grab_focus()
@@ -20,6 +21,9 @@ func _on_Start_pressed():
 
 func _on_Options_pressed():
 	selectSFXPressed.play()
+	var optionsMenu = options.instance()
+	add_child(optionsMenu)
+	$Main.visible = false
 
 
 func _on_Credits_pressed():	

@@ -156,6 +156,7 @@ func machineDuration():
 
 func machineGun():
 	skillMachineGun.get_node("powerup").emitting = true
+	$skillenable.play()
 	if skillMachineGun.get_node("Duration").is_stopped():
 		skillMachineGun.get_node("Duration").start()
 	while machineGun == true:	

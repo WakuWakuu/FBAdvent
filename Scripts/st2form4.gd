@@ -27,7 +27,7 @@ var canFire = true
 var patternLoop = 5
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func ready():
 	if owl1ref.get_ref():
 		owl1.ready()
 		owl1Health.wait_time = 3
@@ -66,7 +66,7 @@ func _on_bull_timeout():
 	if owl1ref.get_ref():	
 		add1Instanced.disable()
 	if owl2ref.get_ref():
-		yield(get_tree().create_timer(2), "timeout")
+		#yield(get_tree().create_timer(2), "timeout")
 		add2Instanced.disable()
 	
 

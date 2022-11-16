@@ -118,7 +118,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	
 
 func _on_dialogueStart_timeout():
-	var encounterDialogue = Dialogic.start("OG-encounter2")
+	var encounterDialogue = Dialogic.start("Le-encounter")
 	add_child(encounterDialogue)
 	emit_signal("bossStart")
 	var bossInstanced = boss.instance()
@@ -134,7 +134,7 @@ func _on_dialogueStart_timeout():
 	while !bossInstanced.isDefeated():
 		yield(get_tree().create_timer(0.5), "timeout")
 		pass
-	var defeated = Dialogic.start("OG-defeated2")
+	var defeated = Dialogic.start("Le-defeated")
 	add_child(defeated)
 	while Dialogic.has_current_dialog_node():
 		yield(get_tree().create_timer(0.5), "timeout")
