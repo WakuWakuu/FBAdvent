@@ -118,7 +118,10 @@ _global_script_class_icons={
 
 config/name="Fruit Bat Adventure Hackathon"
 run/main_scene="res://Scenes/MainMenu.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://logo.png"
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.87451, 0.517647, 0.647059, 1 )
+config/icon="res://apple.png"
 
 [autoload]
 
@@ -138,6 +141,10 @@ window/size/resizable=false
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/BulletHellper/plugin.cfg", "res://addons/dialogic/plugin.cfg" )
+
+[global]
+
+rcedit=false
 
 [gui]
 

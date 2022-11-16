@@ -39,10 +39,13 @@ func _on_hitbox_area_entered(area):
 		
 		if immunity == false and damageStart == true:
 			#Checks if the hitbox is a bullet
-			if area.name == "hitboxBull":
+			if area.name == "hitboxBull" or area.name == "bigBull":
 				health -= 1
 				#print(int($Health.wait_time))
 				#print(health)
+				
+				if area.name == "bigBull":
+					health -= 39
 				
 				if health <= 0 and phase == 1:
 					

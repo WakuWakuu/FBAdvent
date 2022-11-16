@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://addons/BulletHellper/Source/BulletPattern.gd" type="Script" id=1]
-[ext_resource path="res://addons/BulletHellper/BasicBullets/SimpleBullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/BulletHellper/BasicBullets/SmallBullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/BulletHellper/Source/BulletPattern.tscn" type="PackedScene" id=4]
 
@@ -13,22 +12,12 @@ position = Vector2( 542, 210 )
 script = ExtResource( 1 )
 bullet_scene = ExtResource( 3 )
 bullet_cooldown = 0.1
-initial_wait_time = 0.0
 bullet_num = 5
-cooldown_between_bullets = 0.0
-aiming_bullet = false
 shot_type = 1
 spread = 10.0
-use_static_direction = false
 direction = Vector2( 0, 1 )
-position_offset = 0.0
-perpendicular_offset = 0.0
 is_rotating = true
 rotating_speed = 85.0
-randomize_position = 0.0
-randomize_direction = 0.0
-randomize_parallel = 0.0
-randomize_perpendicular = 0.0
 shell_settings = {
 "acceleration": -50.0,
 "angular_speed": 80.0,
@@ -51,26 +40,12 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
-[node name="BulletPattern" type="Node2D" parent="." instance=ExtResource( 4 )]
-script = ExtResource( 1 )
-bullet_scene = ExtResource( 2 )
+[node name="BulletPattern" parent="." instance=ExtResource( 4 )]
 bullet_cooldown = 0.05
-initial_wait_time = 0.0
 bullet_num = 3
-cooldown_between_bullets = 0.0
-aiming_bullet = false
-shot_type = 1
 spread = 50.0
-use_static_direction = false
-direction = Vector2( 0, 1 )
-position_offset = 0.0
-perpendicular_offset = 0.0
 is_rotating = true
 rotating_speed = -85.0
-randomize_position = 0.0
-randomize_direction = 0.0
-randomize_parallel = 0.0
-randomize_perpendicular = 0.0
 shell_settings = {
 "acceleration": -50.0,
 "aim_individual_bullet": false,

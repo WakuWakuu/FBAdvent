@@ -90,7 +90,7 @@ func _on_Start_timeout():
 func _on_Shoot_timeout():
 	
 	if bossref.get_ref():
-		spellName.text = " Spell:『Snow Storm』"
+		spellName.text = " Spell:『Thorns That Defend the Rose』"
 		anim.playback_speed = 0.6
 		anim.playback_default_blend_time = 1.5
 		#anim.current_animation = "phase1"
@@ -110,7 +110,7 @@ func _on_Shoot_timeout():
 func _on_OwlGirl_phase1End():
 	if bossref.get_ref():
 		
-		spellName.text = " Spell:『The Storm and the Seas』"
+		spellName.text = " Spell:『Water Lotus』"
 		anim.playback_speed = 1
 		anim.playback_default_blend_time = 0.8
 		#anim.current_animation = "phase2"
@@ -133,7 +133,7 @@ func _on_OwlGirl_phase1End():
 func _on_OwlGirl_phase2End():
 
 	if bossref.get_ref():
-		spellName.text = " Spell:『Autumn Fall』"
+		spellName.text = " Spell:『The Balance of the Earth』"
 		att2.disable()
 
 		boss.add_child(att3)
@@ -148,12 +148,12 @@ func _on_OwlGirl_phase2End():
 
 func _on_OwlGirl_phase3End():
 	if bossref.get_ref():
-		spellName.text = " Spell:『Hurricane Travesty』"
+		spellName.text = " Spell:『The Grass Dance』"
 		anim.playback_speed = 1.2
 		anim.playback_default_blend_time = 1.5
 		#anim.current_animation = "phase4"
 		att3.disable()
-		yield(get_tree().create_timer(1.5), "timeout")
+		yield(get_tree().create_timer(1), "timeout")
 		boss.add_child(att4)
 		att4.global_position = boss.global_position
 
@@ -171,6 +171,7 @@ func _on_OwlGirl_phase3End():
 
 func _on_OwlGirl_phase4End():
 	if bossref.get_ref():
+		spellName.text = " Spell:『Poison』"
 		att4.disable()
 		boss.add_child(att5)
 		att5.global_position = boss.global_position
@@ -185,6 +186,7 @@ func _on_OwlGirl_phase4End():
 
 func _on_OwlGirl_phase5End():
 	if bossref.get_ref():
+		spellName.text = " Spell:『Field of Hopes ~ Field of Grace』"
 		att5.disable()
 		boss.add_child(att6)
 		att6.global_position = boss.global_position

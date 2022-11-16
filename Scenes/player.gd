@@ -9,13 +9,16 @@ onready var speed
 onready var hitboxSprite = $hitbox
 onready var meleeCircle = $melee
 onready var bulletScene = load("res://Scenes/playerBullet.tscn")
+onready var bigBulletScene = load("res://Scenes/bigBullet.tscn")
 onready var canShoot = true
 onready var shootingSpeed 
 onready var anim = $Sprite
 
 onready var skillMachineGun = $Skills/machineGunSkill
+onready var skillBigBullet = $Skills/bigBulletSkill
 
 
+var bigBullet = false
 
 var machineGun = false
 var skillDuration1 = false
@@ -23,7 +26,8 @@ var canActivate = true
 
 var skillList = [
 	
-	"Machine Gun"
+	"Machine Gun",
+	"Large Bullet"
 	
 ]
 
@@ -72,7 +76,9 @@ func movement_input():
 	if Input.is_action_just_pressed("skill"):
 		if canActivate == true:
 			machineGun()
+			bigBullet()
 			canActivate = false
+			
 		
 
 	
@@ -146,6 +152,10 @@ func _on_Scene_powerSkillActivate():
 		
 		machineGun = true
 		
+	elif skill == skillList[1]:
+		
+		bigBullet = true
+		
 
 func randSkill(skills):
 	return skillList[randi() % skills.size()]
@@ -166,8 +176,22 @@ func machineGun():
 	skillMachineGun.get_node("powerup").emitting = false
 	#shootingSpeed = 0.2
 
+
+func bigBullet():
+	$skillenable.play()
+	if bigBullet == true:
+		var bullet = bigBulletScene.instance()
+		get_parent().add_child(bullet)
+		bullet.position.x = $Position2D.global_position.x
+		bullet.position.y = $Position2D.global_position.y - 30
+		bigBullet = false
+	
+
+
 func getCurrentSkill():
 	if machineGun == true:
 		return " Machine Gun"
+	elif bigBullet == true:
+		return " Large Bullet"
 	else:
 		return ""
