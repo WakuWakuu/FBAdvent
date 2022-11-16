@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Theme/fonts/LibreBaskerville-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Stage2.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/tileScroll.gd" type="Script" id=3]
 [ext_resource path="res://Theme/theme.tres" type="Theme" id=4]
 [ext_resource path="res://Sprites/misc/tilesheet.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/misc/houses.png" type="Texture" id=6]
@@ -10,6 +9,7 @@
 [ext_resource path="res://Sprites/misc/tilesheet2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/misc/houses2.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/tileScrollBack.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/tileScroll2.gd" type="Script" id=11]
 
 [sub_resource type="ParticlesMaterial" id=23]
 emission_shape = 2
@@ -359,7 +359,7 @@ script = ExtResource( 7 )
 [node name="houses" type="CanvasLayer" parent="."]
 layer = 0
 follow_viewport_enable = true
-script = ExtResource( 3 )
+script = ExtResource( 11 )
 
 [node name="TileMap" type="TileMap" parent="houses"]
 scale = Vector2( 2, 2 )
@@ -376,7 +376,7 @@ tile_data = PoolIntArray( -131066, 2, 0, -131060, 2, 0, -65530, 2, 0, -65524, 2,
 [node name="tilemap" type="CanvasLayer" parent="."]
 layer = -1
 follow_viewport_enable = true
-script = ExtResource( 3 )
+script = ExtResource( 11 )
 
 [node name="TileMap" type="TileMap" parent="tilemap"]
 light_mask = 0

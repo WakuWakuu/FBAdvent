@@ -27,7 +27,7 @@ var canActivate = true
 var skillList = [
 	
 	"Machine Gun",
-	"Large Bullet"
+	"Sunray Blast"
 	
 ]
 
@@ -192,6 +192,6 @@ func getCurrentSkill():
 	if machineGun == true:
 		return " Machine Gun"
 	elif bigBullet == true:
-		return " Large Bullet"
+		return " Sunray Blast"
 	else:
 		return ""

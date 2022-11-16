@@ -4,7 +4,7 @@
 	"display_name": "Lemur girl",
 	"display_name_bool": true,
 	"id": "character-1667708766.json",
-	"mirror_portraits": false,
+	"mirror_portraits": true,
 	"name": "Lemur girl",
 	"nickname": "",
 	"nickname_bool": false,
